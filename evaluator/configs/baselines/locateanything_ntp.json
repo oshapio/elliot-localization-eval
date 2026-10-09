@@ -1,0 +1,5 @@
+{
+  "model_path": "/leonardo_scratch/large/userexternal/auselis0/checkpoints/nvidia-locateanything-3b",
+  "generation_mode": "slow",
+  "coordinate_max": 1000
+}

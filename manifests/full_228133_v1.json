@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "suite": "full_localization_v1",
+  "samples": 228133,
+  "groups": 44,
+  "filename": "inputs/manifest.jsonl",
+  "uncompressed_bytes": 416361681,
+  "sha256": "08a7f24ddb75d87285813366e54deb6872f84b4250cce61ce588f73b72d2f960",
+  "storage": "frozen in each prepared full-run directory",
+  "canonical_leonardo_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v022_matched_step77938_228k_32gpu_debug_20260915/inputs/manifest.jsonl",
+  "builder": "monitoring/v1/tools/manifests/builders/build_full_localization.py"
+}

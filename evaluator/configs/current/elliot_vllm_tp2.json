@@ -1,0 +1,14 @@
+{
+  "name": "cardinality-repair-70-30-local500-vllm-4mp16k-tp2",
+  "model_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/cache/eval-hf-exports/58552791",
+  "max_model_len": 16384,
+  "max_num_seqs": 16,
+  "tensor_parallel_size": 2,
+  "gpu_memory_utilization": 0.8,
+  "enforce_eager": false,
+  "coordinate_max": 1000,
+  "repetition_penalty": 1.05,
+  "max_pixels": 4194304,
+  "min_pixels": 65536,
+  "output_format": "mixed_special_xyxy_grouped_all_instances_v2"
+}
