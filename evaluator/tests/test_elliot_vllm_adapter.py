@@ -2,6 +2,7 @@
 
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -18,6 +19,36 @@ from adapters.elliot_vllm import create_adapter
 
 
 class AdapterTest(unittest.TestCase):
+    def test_launcher_uses_selected_checkout_over_stale_plugin(self):
+        launcher = Path(__file__).resolve().parents[1] / "slurm/vllm_benchmark.sbatch"
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            plugin = root / "integrations/elliot_vllm/elliot_vllm"
+            plugin.mkdir(parents=True)
+            shutil.copyfile(launcher.parents[2] / "integrations/elliot_vllm/elliot_vllm/__init__.py",
+                            plugin / "__init__.py")
+            scorer = root / "evaluator/scoring"
+            scorer.mkdir(parents=True)
+            (scorer / "__init__.py").touch()
+            (scorer / "rex.py").write_text("def load_scorer(): pass\n")
+            stale = root / "stale/elliot_vllm"
+            stale.mkdir(parents=True)
+            (stale / "__init__.py").write_text("raise RuntimeError('stale plugin loaded')\n")
+            binaries = root / "bin"
+            binaries.mkdir()
+            srun = binaries / "srun"
+            srun.write_text("#!/bin/sh\nexit 77\n")
+            srun.chmod(0o755)
+            result = subprocess.run(["bash", str(launcher)], text=True, capture_output=True,
+                                    env={**os.environ, "EVAL_REPO": str(root),
+                                         "EVAL_PYTHON": sys.executable, "CONFIG": "unused.json",
+                                         "OUTPUT_DIR": str(root / "output"),
+                                         "SLURM_CPUS_PER_TASK": "1", "SLURM_NTASKS": "1",
+                                         "PYTHONPATH": str(stale.parent),
+                                         "PATH": str(binaries) + os.pathsep + os.environ["PATH"]})
+            self.assertEqual(result.returncode, 77, result.stdout + result.stderr)
+            self.assertIn(f"Elliot plugin: {plugin / '__init__.py'}", result.stdout)
+
     def test_current_configs_select_the_verified_release(self):
         configs = Path(__file__).resolve().parents[1] / "configs/current"
         paths = sorted(configs.glob("*.json"))

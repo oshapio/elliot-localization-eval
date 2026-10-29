@@ -154,6 +154,52 @@ when `submission.json` already exists.
 defaults to the Leonardo training checkout. Pass either explicitly when using
 a different clean checkout; both resolved paths are recorded in the contract.
 
+## Small smoke test with an existing HF export
+
+`manifests/smoke_7_v1.jsonl` contains seven unchanged rows from
+`benchmark_850_v4.jsonl`, one per localization family. Within each family the
+selection minimizes `(target_count, sample_id)`. It covers box, point and GUI
+protocols while keeping generation small. Its scores only check that inference,
+decoding, merge and scoring execute; they are not benchmark performance estimates.
+Image paths retain the existing Leonardo EvalData location.
+
+The first smoke target is the cardinality-repair local-500 HF export already
+named in `evaluator/configs/current/elliot_vllm.json`. It uses that config's
+mixed-special grouped output, 0–1000 coordinates, 4 MP image cap, 16K context and
+1.05 repetition penalty. This does not establish compatibility with the separate
+native-processing plugin used by later post-training and recovery runs.
+
+From a committed, pushed checkout on Leonardo, inspect the config, confirm its
+model and manifest images exist, and check existing jobs and run records first.
+The following is a command to review, not authorization to submit:
+
+```bash
+export EVAL_REPO="$PWD"
+export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
+export EVAL_DATA=/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData
+export CONFIG="$EVAL_REPO/evaluator/configs/current/elliot_vllm.json"
+export MANIFEST="$EVAL_REPO/manifests/smoke_7_v1.jsonl"
+export OUTPUT_DIR=/path/to/new/durable/elliot-cardinality500-smoke7-v1
+export PROMPT_FAMILY=elliot-loc BATCH_SIZE=1 MAX_NEW_TOKENS=4096
+export EXPECTED_MANIFEST_SHA256="$(sha256sum "$MANIFEST" | cut -d ' ' -f 1)"
+export EXPECTED_GROUP_COUNT=7
+mkdir -p "$OUTPUT_DIR/logs"
+sbatch --job-name=elliot-smoke7 --ntasks=1 --ntasks-per-node=1 \
+  --time=00:20:00 --output="$OUTPUT_DIR/logs/%x-%j.out" \
+  --error="$OUTPUT_DIR/logs/%x-%j.err" evaluator/slurm/vllm_benchmark.sbatch
+```
+
+This reuses the existing launcher with one GPU and no token-cap retry. The
+launcher selects this checkout's Elliot plugin even when the shared environment
+has an editable installation pointing elsewhere, and verifies the import before
+starting inference. The compiled scorer and EvalData must also be available.
+
+After an authorized submission, follow `AGENTS.md` to record the command,
+revisions, job and artifact paths in `runs/`. Check all seven IDs occur exactly
+once, no error rows, raw responses and box/point geometry, token-cap hits and
+seven scored groups. Empty predictions and token-cap hits require inspection;
+an exit code alone does not establish correct decoding or useful model output.
+
 ## Historical evidence versus reusable source
 
 Generated predictions, logs, W&B payloads, publication receipts, and recovery
