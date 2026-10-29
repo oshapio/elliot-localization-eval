@@ -1,0 +1,14 @@
+{
+  "name": "0002-v022-77938-refbox-smoke7",
+  "model_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/cache/eval-hf-exports/57714053",
+  "max_model_len": 16384,
+  "max_num_seqs": 16,
+  "tensor_parallel_size": 1,
+  "gpu_memory_utilization": 0.8,
+  "enforce_eager": false,
+  "coordinate_max": 1000,
+  "repetition_penalty": 1.05,
+  "max_pixels": 4194304,
+  "min_pixels": 65536,
+  "output_format": "ref_box"
+}

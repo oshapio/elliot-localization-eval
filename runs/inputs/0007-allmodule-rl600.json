@@ -1,0 +1,14 @@
+{
+  "name": "0007-allmodule-rl600-smoke7",
+  "model_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/post_training/localization_grpo_native7145_20261012/runs/unfrozen-rl300-64-prod-v004/evaluation_automation/step_600/hf_export",
+  "max_model_len": 16384,
+  "max_num_seqs": 16,
+  "tensor_parallel_size": 1,
+  "gpu_memory_utilization": 0.8,
+  "enforce_eager": false,
+  "coordinate_max": 1000,
+  "repetition_penalty": 1.05,
+  "max_pixels": 4194304,
+  "min_pixels": 65536,
+  "output_format": "mixed_special_xyxy_grouped_all_instances_v2"
+}
