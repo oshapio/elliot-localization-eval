@@ -169,3 +169,18 @@ def test_manifest_exact_preserves_the_prepared_training_prompt_verbatim():
     assert run.prompt_protocol_for("manifest-exact") == "manifest-exact-v1"
     with pytest.raises(ValueError, match="non-empty prompt"):
         run.prompt_for({}, "manifest-exact", MIXED)
+
+
+def test_humanref_baseline_prompts_preserve_all_people():
+    sample = record("HumanRef", "person wearing red", "referring", "box", "referring")
+    assert run.prompt_for(sample, "rex-omni") == (
+        'Detect all people matching "person wearing red". Output a separate '
+        'bounding box in [x0, y0, x1, y1] format for each person.')
+    assert run.prompt_for(sample, "qwen") == (
+        'Locate all people matching "person wearing red". Return a JSON list '
+        'with bbox_2d and label for every matching person. Use coordinates '
+        'from 0 to 1000 and the description as label.')
+    sample["dataset_name"] = "RefCOCOg"
+    assert "all people" not in run.prompt_for(sample, "qwen")
+    sample.update(dataset_name="HumanRef", benchmark_protocol="point")
+    assert "Point to" in run.prompt_for(sample, "qwen")
