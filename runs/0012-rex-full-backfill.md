@@ -1,7 +1,7 @@
 # 0012 — rex-full-backfill
 
-Status: prepared; not submitted. Requires the corresponding missing-group smoke
-to finish and be checked before launching. Using the stated default: backfill missing/error rows and retain verified
+Status: submitted as Slurm job **62812168**, 2026-10-29 21:30 UTC.
+The corresponding 22-query smoke passed execution, geometry and scoring checks. Using the stated default: backfill missing/error rows and retain verified
 compatible old rows, with original provenance preserved.
 
 ## Coverage and provenance
@@ -31,7 +31,7 @@ compatible old rows, with original provenance preserved.
 
 ## Attempt 1 — prepared command
 
-Job ID: pending. Before submitting, check the smoke, current jobs and receipts;
+Job ID: **62812168**, first attempt. Before submitting, check the smoke, current jobs and receipts;
 never launch concurrent writers to this run's shards.
 
 ```bash
@@ -73,4 +73,6 @@ full-manifest merge of historical compatible rows and new rows. Require exactly
 228,133 unique IDs, 44 scored groups, report all error/invalid rows and retain raw
 responses and per-row origin metadata. Never report subset scores as full scores.
 
-No large inference has been submitted. No results are claimed yet.
+Backfill submitted with 16 GPUs / four nodes and a two-hour limit. Both image
+and annotation preflights passed. Existing rows are retained separately; complete
+combined scores and job completion are still pending.
