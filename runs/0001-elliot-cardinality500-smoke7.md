@@ -1,6 +1,7 @@
 # 0001 — Elliot cardinality-repair local-500 smoke test
 
-Status: submitted as Slurm job **62797056** at 2026-10-29 19:49:50 UTC. Authorized by the user for Leonardo debug QoS.
+Status: **completed; smoke checks passed**. Slurm job **62797056**, submitted
+2026-10-29 19:49:50 UTC, completed with exit `0:0` in **6m 38s**. Authorized by the user for Leonardo debug QoS.
 This checks the evaluation path, not benchmark performance.
 
 ## Model, code and inputs
@@ -31,14 +32,14 @@ This checks the evaluation path, not benchmark performance.
 - Scorer: tracked vendored source plus the existing platform-specific
   `fastevaluate.cpython-311-x86_64-linux-gnu.so`, linked from
   `/leonardo_work/EUHPC_E07_125/nas/elliot-vl-eval-vllm/evals_localization/vendor/fastevaluate/`.
-  The binary hash goes in the receipt; it is excluded from Git.
+  The binary hash is saved in the receipt; the binary is excluded from Git.
 
-## Attempt 1 — prepared command
+## Attempt 1 — executed command
 
 Leonardo exposes debug service as QoS `boost_qos_dbg` on partition
 `boost_usr_prod`, with a 30-minute QoS limit. Request one GPU for 20 minutes.
 There was no existing `elliot-smoke7` job or run directory during preparation.
-Job ID: **62797056**. Submission succeeded; no earlier attempt.
+Job ID: **62797056**, node `lrdn2647`. One attempt; no retry.
 
 ```bash
 cd /leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval
@@ -74,8 +75,39 @@ All artifacts use `OUTPUT_DIR` above:
 - Model/config/binary hashes and package versions: `asset-identities.json`.
 - Submission command/receipt: `launch.sh` and `submission.json`.
 
-Before submission: all seven image paths and the model config exist; nine
-adapter tests and six orchestration tests passed locally. GPU output and scoring
-are pending. After completion, inspect unique ID coverage (7/7), error count,
-raw/decoded box and point responses, coordinate bounds, token-cap hits and all
-seven scored groups. Do not interpret this small subset as a performance comparison.
+Before submission, all seven image paths and the model config existed; nine
+adapter tests and six orchestration tests passed locally. The CPU scorer preflight
+passed. The ignored compiled extension was made available in the clean checkout:
+
+```bash
+ln -s /leonardo_work/EUHPC_E07_125/nas/elliot-vl-eval-vllm/evals_localization/vendor/fastevaluate/fastevaluate.cpython-311-x86_64-linux-gnu.so \
+  /leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval/evals_localization/vendor/fastevaluate/fastevaluate.cpython-311-x86_64-linux-gnu.so
+```
+
+Final evidence is saved in `verification.json` alongside the other artifacts:
+
+- Seven unique predictions in exact manifest order; seven nonempty responses.
+- Zero error rows and zero token-cap hits; all seven groups scored.
+- All decoded targets have the expected dimension (boxes or points), ordered box
+  corners and coordinates within their original image bounds.
+- Raw integer tokens survive generation and decode to original-image pixels.
+  For example, banana `[<674>,<429>,<994>,<989>]` on a 500×364 image becomes
+  `[337.0,156.156,497.0,359.996]`. Point responses remain two-dimensional.
+- Slurm reports the job and inference step completed with exit `0:0`.
+
+| Group | Primary score (0–1) |
+| --- | ---: |
+| COCO / box | 0.000000 |
+| VisDrone / box | 0.650000 |
+| DocLayNet / box | 0.633333 |
+| screenspot_v2 / GUI | 1.000000 |
+| IC15 / box | 0.000000 |
+| COCO / point | 0.285714 |
+| HumanRef / box | 1.000000 |
+
+These are seven individual-query results, not benchmark estimates. Output is
+structurally valid but not always correct: the banana box is much smaller than
+its ground truth, the OCR box is at the wrong location, and pointing returns six
+donuts against one annotated target. Passing this smoke confirms the execution
+and decoding/scoring path; it does not establish model accuracy or parity with
+historical evaluations.
