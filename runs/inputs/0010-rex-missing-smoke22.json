@@ -1,0 +1,16 @@
+{
+  "tensor_parallel_size": 1,
+  "gpu_memory_utilization": 0.85,
+  "max_num_seqs": 16,
+  "enforce_eager": false,
+  "repetition_penalty": 1.05,
+  "name": "rex-omni-3b-vllm",
+  "family": "rex-omni",
+  "model_path": "/leonardo_work/EUHPC_E07_125/nas/checkpoints/Rex-Omni-0e5693d",
+  "tokenizer_path": "/leonardo_work/EUHPC_E07_125/nas/elliot-vl-eval-vllm/outputs/full_rex_vllm_20260905/inputs/tokenizer",
+  "max_model_len": 8192,
+  "mm_processor_kwargs": {
+    "min_pixels": 12544,
+    "max_pixels": 2007040
+  }
+}

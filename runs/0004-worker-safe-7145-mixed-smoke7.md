@@ -1,7 +1,7 @@
 # 0004 — worker-safe-7145-mixed: canonical compatibility smoke
 
 Status: job **62805249** completed with exit `0:0` in **6m 21s**.
-Predictions and scores exist; detailed raw-response/geometry review pending. User authorized additional version smoke tests.
+Predictions and scores exist; raw-response and geometry checks completed. User authorized additional version smoke tests.
 Seven queries, one GPU, debug QoS, 20-minute limit. This is not a historical
 score reproduction or a full benchmark evaluation.
 
@@ -71,8 +71,8 @@ all seven rendered prompts. `launch.sh` and `submission.json` preserve submissio
 Preflight passed: all referenced weight shards and images exist; each tokenizer
 contains 1001 distinct coordinate tokens, IDs 248077–249077. CPU scorer imports
 succeeded. Generation and scoring completed: seven rows and seven scored groups, zero
-error rows, seven nonempty predictions and zero token-cap hits. Detailed
-raw-response/geometry review and historical parity remain unverified. Passing execution, parse coverage and model accuracy are
+error rows, seven nonempty predictions and zero token-cap hits. Raw decoding and geometry checks passed (see below); historical parity remains
+unverified. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.
 
 ## Detailed output check
