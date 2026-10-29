@@ -1,8 +1,8 @@
 # 0012 — rex-full-backfill
 
 Status: prepared; not submitted. Requires the corresponding missing-group smoke
-to finish and be checked before launching. User preference on backfill versus
-fresh full runs is pending; the prepared default is backfill.
+to finish and be checked before launching. Using the stated default: backfill missing/error rows and retain verified
+compatible old rows, with original provenance preserved.
 
 ## Coverage and provenance
 

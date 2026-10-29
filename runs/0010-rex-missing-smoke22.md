@@ -1,6 +1,7 @@
 # 0010 — rex-missing-smoke22
 
-Status: submitted as job **62810776** at 2026-10-29 21:21 UTC. User authorized full baseline coverage work;
+Status: completed; 22-query missing-group execution/geometry/scoring checks passed.
+Job **62810776**. Twenty-two scored groups, no error rows; all outputs nonempty. User authorized full baseline coverage work;
 this small smoke checks the previously missing task groups before the backfill.
 
 - Config: [`0010-rex-missing-smoke22.json`](inputs/0010-rex-missing-smoke22.json); model path and runtime settings explicit.
@@ -50,3 +51,6 @@ Root: `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluat
 Receipts: `asset-identities.json`, `submission.json`, `launch.sh`, `slurm_job.txt`.
 Logs: `logs/`. Check 22 unique IDs, zero errors, point/box dimensions and scorer
 coverage for all 22 groups. No benchmark accuracy claim from these 22 queries.
+
+Final verification: external `verification.json` records exact manifest order,
+all box/point dimensions and bounds, raw examples and coverage. Zero token-cap hits.

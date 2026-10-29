@@ -15,8 +15,8 @@ number 0001 is the first run recorded through this workflow.
 | [0006](0006-language-rl300-smoke7.md) | language-rl300 | smoke_manifest_7_v1 (7 queries) | Failed: missing elliot_grpo (62806537) |
 | [0007](0007-allmodule-rl600-smoke7.md) | allmodule-rl600 | smoke_manifest_7_v1 (7 queries) | Failed: missing elliot_grpo (62806539) |
 | [0008](0008-dense40-rl50-smoke7.md) | dense40-rl50 | smoke_manifest_7_v1 (7 queries) | Submission rejected: debug submit limit |
-| [0009](0009-qwen35-missing-smoke22.md) | qwen3.5-2b-vllm | missing-groups smoke (22 queries) | Submitted: 62810773 |
-| [0010](0010-rex-missing-smoke22.md) | rex-omni-3b-vllm | missing-groups smoke (22 queries) | Submitted: 62810776 |
+| [0009](0009-qwen35-missing-smoke22.md) | qwen3.5-2b-vllm | missing-groups smoke (22 queries) | Completed; 1 token-cap hit (62810773) |
+| [0010](0010-rex-missing-smoke22.md) | rex-omni-3b-vllm | missing-groups smoke (22 queries) | Completed; checks passed (62810776) |
 
 ## Historical full-suite evidence
 
