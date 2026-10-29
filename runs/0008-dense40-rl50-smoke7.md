@@ -82,3 +82,10 @@ package versions and all seven rendered prompts are saved externally. The ignore
 compiled scorer binary is linked into this worktree as in run 0001.
 Generation and scoring results are pending. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.
+
+## Attempt 2 — same command, submission rejected
+
+At 2026-10-29 20:54:25 UTC, a retry after runs 0002/0003 left the visible queue
+was still rejected with `QOSMaxSubmitJobPerUserLimit` (exit 1). No job was created.
+Receipt: `submission-attempt2.json`. No further submission has been attempted;
+the scheduler limit must clear before another retry.
