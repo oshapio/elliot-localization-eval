@@ -1,0 +1,14 @@
+{
+  "name": "0005-recovery-10000-mixed-smoke7",
+  "model_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-sft-recovery/experiments/original25k-general80-local20-n32-gbs256-lr1e5-v1/evaluation_automation/general/exports/recovery10000",
+  "max_model_len": 16384,
+  "max_num_seqs": 16,
+  "tensor_parallel_size": 1,
+  "gpu_memory_utilization": 0.8,
+  "enforce_eager": false,
+  "coordinate_max": 1000,
+  "repetition_penalty": 1.05,
+  "max_pixels": 4194304,
+  "min_pixels": 65536,
+  "output_format": "mixed_special_xyxy_grouped_all_instances_v2"
+}
