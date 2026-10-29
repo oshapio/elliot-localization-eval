@@ -217,6 +217,18 @@ def _base_prompt_for_entry(entry, model):
                     '"point_2d" and "label". Use integers from 0 to 1000.')
         return question
 
+    # HumanRef is multi-person referring, unlike single-target RefCOCO/GUI.
+    # Preserve the prompts used by the completed Rex/Qwen baseline evaluations.
+    if entry.get("dataset_name") == "HumanRef" and entry.get("benchmark_protocol") != "point":
+        expression = categories[0]
+        if model == "rex-omni":
+            return (f'Detect all people matching "{expression}". Output a separate '
+                    'bounding box in [x0, y0, x1, y1] format for each person.')
+        if model == "qwen":
+            return (f'Locate all people matching "{expression}". Return a JSON list '
+                    'with bbox_2d and label for every matching person. Use coordinates '
+                    'from 0 to 1000 and the description as label.')
+
     family = entry.get("benchmark_family")
 
     # These are supplied-transcription localization queries, not generic OCR
