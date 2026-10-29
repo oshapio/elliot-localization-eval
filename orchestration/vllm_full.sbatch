@@ -44,7 +44,7 @@ PY
 # process receives a unique global SLURM_PROCID=0..15 and writes its matching
 # shard_<rank>.jsonl. This command blocks until every inference rank exits.
 srun --ntasks="$SLURM_NTASKS" --label --gpu-bind=none --output="$run/logs/rank_%t-$SLURM_JOB_ID.out" --error="$run/logs/rank_%t-$SLURM_JOB_ID.err" \
-    "$evaluator/slurm/run_shard.sh" "$evaluator" "$run/inputs/manifest.jsonl" \
+    "$repo/orchestration/run_shard.sh" "$evaluator" "$run/inputs/manifest.jsonl" \
     "$run/inputs/config.json" "$run/predictions" 0
 date -u +'%FT%TZ' > "$run/inference_finished_at.txt"
 

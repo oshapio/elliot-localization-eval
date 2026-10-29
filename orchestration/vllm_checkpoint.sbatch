@@ -39,7 +39,7 @@ scontrol show job "$SLURM_JOB_ID" > "$run/slurm_job.txt"
 srun --gpu-bind=closest \
   --output="$run/logs/rank_%t-$SLURM_JOB_ID.out" \
   --error="$run/logs/rank_%t-$SLURM_JOB_ID.err" \
-  "$evaluator/slurm/run_shard.sh" "$evaluator" "$run/inputs/manifest.jsonl" \
+  "$repo/orchestration/run_shard.sh" "$evaluator" "$run/inputs/manifest.jsonl" \
   "$run/inputs/config.json" "$run/predictions" 0
 
 shards=()

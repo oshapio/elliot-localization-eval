@@ -72,7 +72,7 @@ mkdir -p outputs
 export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
 export CONFIG="$PWD/evaluator/configs/current/elliot_vllm.json"
 export OUTPUT_DIR="$PWD/outputs/my_checkpoint_850"
-sbatch evaluator/slurm/vllm_benchmark.sbatch
+sbatch orchestration/vllm_benchmark.sbatch
 ```
 
 The config selects an already exported HF checkpoint. Copy it and change

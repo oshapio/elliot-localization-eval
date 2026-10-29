@@ -56,7 +56,7 @@ PY
 # Launch exactly SLURM_NTASKS=4 copies of run_shard.sh. Slurm
 # gives them global ranks SLURM_PROCID=0..3; each copy writes shard_<rank>.jsonl.
 # srun is blocking, so the batch shell continues only after all four exit.
-srun --ntasks="$SLURM_NTASKS" --gpu-bind=closest "$evaluator/slurm/run_shard.sh" \
+srun --ntasks="$SLURM_NTASKS" --gpu-bind=closest "$repo/orchestration/run_shard.sh" \
     "$evaluator" "$manifest" "$config" "$output" 0
 
 # SLURM_NTASKS comes from #SBATCH --ntasks above. Enumerate the exact files the
