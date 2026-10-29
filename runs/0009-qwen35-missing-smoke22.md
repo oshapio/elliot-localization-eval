@@ -1,11 +1,12 @@
 # 0009 — qwen35-missing-smoke22
 
-Status: prepared; not submitted. User authorized full baseline coverage work;
+Status: submitted as job **62810773** at 2026-10-29 21:21 UTC. User authorized full baseline coverage work;
 this small smoke checks the previously missing task groups before the backfill.
 
 - Config: [`0009-qwen35-missing-smoke22.json`](inputs/0009-qwen35-missing-smoke22.json); model path and runtime settings explicit.
-- Runtime: committed canonical Git worktree, linked at `RUN_DIR/source`; no copied evaluator.
+- Runtime: committed canonical Git worktree at `f4cb946`, linked at `RUN_DIR/source`; no copied evaluator.
 - Manifest: `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/canonical-full-campaign-preflight-humanref-fixed-20261029/missing_baseline_smoke22.jsonl`, one query per missing group.
+  SHA-256: `25d56861abcdf7c42f8bfe6cf4d7499109be8bb0204ce796edca7ea5047030fb`.
   Derived by selecting full-suite IDs absent from the historical 179,959-query
   manifest, then the first row per dataset/protocol. Full source SHA-256 is
   `08a7f24ddb75d87285813366e54deb6872f84b4250cce61ce588f73b72d2f960`.
@@ -23,11 +24,11 @@ this small smoke checks the previously missing task groups before the backfill.
 
 ## Attempt 1
 
-Job ID: pending. Prepare `inputs/manifest.jsonl`, `inputs/config.json`, logs and
-source symlink before executing. Record the exact manifest hash in the external
-receipt and export it as `EXPECTED_MANIFEST_SHA256` during preparation.
+Job ID: **62810773**, first attempt. CPU processor, assets and image checks passed. Prepare `inputs/manifest.jsonl`, `inputs/config.json`, logs and
+source symlink before executing. The external receipt and launch.sh pin the exact manifest SHA-256 shown above.
 
 ```bash
+export EXPECTED_MANIFEST_SHA256=25d56861abcdf7c42f8bfe6cf4d7499109be8bb0204ce796edca7ea5047030fb
 export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
 export EVAL_DATA=/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData
 export RUN_DIR=/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/0009-qwen35-missing-smoke22
