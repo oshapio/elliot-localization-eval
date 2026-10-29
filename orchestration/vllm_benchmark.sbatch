@@ -22,6 +22,9 @@ config=${CONFIG:?Set CONFIG to an Elliot vLLM adapter config}
 output=${OUTPUT_DIR:?Set OUTPUT_DIR to a new durable result directory}
 eval_data=${EVAL_DATA:-/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData}
 export PATH="$(dirname "$python"):$PATH"
+# The shared environment may have an editable plugin installed from another
+# checkout. Resolve Elliot from the evaluator checkout selected for this run.
+export PYTHONPATH="$repo/integrations/elliot_vllm${PYTHONPATH:+:$PYTHONPATH}"
 export ADAPTER=elliot_vllm
 export BATCH_SIZE=${BATCH_SIZE:-64}
 export MAX_NEW_TOKENS=${MAX_NEW_TOKENS:-4096}
@@ -33,8 +36,16 @@ mkdir -p "$output"
 # Fail before starting four GPU engines if the CPU scoring environment is not
 # complete. The vendored FasterEvaluate extension is compiled locally and is
 # intentionally not committed as a platform-specific binary.
-"$python" - "$evaluator" <<'PY'
+"$python" - "$evaluator" "$repo/integrations/elliot_vllm/elliot_vllm" <<'PY'
 import sys
+from pathlib import Path
+
+import elliot_vllm
+
+plugin = Path(elliot_vllm.__file__).resolve()
+if plugin.parent != Path(sys.argv[2]).resolve():
+    raise RuntimeError(f"Elliot plugin resolved outside the selected checkout: {plugin}")
+print(f"Elliot plugin: {plugin}", flush=True)
 
 sys.path.insert(0, sys.argv[1])
 from scoring.rex import load_scorer
@@ -45,7 +56,7 @@ PY
 # Launch exactly SLURM_NTASKS=4 copies of run_shard.sh. Slurm
 # gives them global ranks SLURM_PROCID=0..3; each copy writes shard_<rank>.jsonl.
 # srun is blocking, so the batch shell continues only after all four exit.
-srun --ntasks="$SLURM_NTASKS" --gpu-bind=closest "$evaluator/slurm/run_shard.sh" \
+srun --ntasks="$SLURM_NTASKS" --gpu-bind=closest "$repo/orchestration/run_shard.sh" \
     "$evaluator" "$manifest" "$config" "$output" 0
 
 # SLURM_NTASKS comes from #SBATCH --ntasks above. Enumerate the exact files the

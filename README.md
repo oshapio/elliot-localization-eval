@@ -9,7 +9,7 @@ general VLM-evaluation and monitoring code.
 
 ```mermaid
 flowchart LR
-    JOB["Slurm launcher"] --> SHARD["evaluator/slurm/run_shard.sh"]
+    JOB["Slurm launcher"] --> SHARD["orchestration/run_shard.sh"]
     SHARD --> RUN["evaluator/run.py"]
     RUN --> PROMPT["evals_localization/tasks.py"]
     RUN --> ADAPTER["evaluator/adapters/elliot_vllm.py"]
@@ -52,11 +52,11 @@ export EVAL_PYTHON=/path/to/vllm-env/bin/python
 export CONFIG="$PWD/evaluator/configs/current/elliot_vllm.json"
 export OUTPUT_DIR=/path/to/new/output
 export EVAL_DATA=/path/to/EvalData
-sbatch evaluator/slurm/vllm_benchmark.sbatch
+sbatch orchestration/vllm_benchmark.sbatch
 ```
 
 The full suite accepts `MANIFEST=/path/to/full_228133.jsonl` and uses
-`evaluator/slurm/vllm_full.sbatch`. The repository pins the full manifest's
+`orchestration/vllm_full.sbatch`. The repository pins the full manifest's
 identity in `manifests/full_228133_v1.json`; the large JSONL itself remains an
 external benchmark artifact.
 
