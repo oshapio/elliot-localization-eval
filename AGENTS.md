@@ -37,7 +37,12 @@
 
 This is an agent workflow requirement, not a requirement to build an automatic
 registry. After submitting an evaluation, add or update a small Markdown record
-at `runs/<run-id>.md`, commit it and push the branch. Link it from `runs/README.md`
+at `runs/<NNNN>-<descriptive-name>.md`, commit it and push the branch. Allocate
+the next unused four-digit number from the run index before submission; check
+the remote branches and open PRs for a number already reserved there. Never
+renumber existing records. Keep retries under the same number with separate
+attempts; a different checkpoint, config or manifest gets a new number.
+Commit and push the prepared command before launching. Link it from `runs/README.md`
 (create the index with the first record). Record failed or cancelled runs too.
 
 Each record must contain:
