@@ -6,6 +6,12 @@ This level represents the two current evaluation suites:
 - `full_228133_v1.json` — the immutable identity and provenance record for the
   full 228,133-query evaluation.
 
+`smoke_manifest_7_v1.jsonl` is a smoke-test manifest with seven queries copied
+unchanged from routine-850, one per localization family, selecting the minimum
+`(target_count, sample_id)` per family. Rows reference existing images and include
+targets and ground truth. Use it to check inference, decoding and scoring; its
+scores are not benchmark performance estimates.
+
 The full JSONL is 416,361,681 bytes, above GitHub's normal single-file limit.
 Therefore each prepared full run carries an exact frozen copy at
 `inputs/manifest.jsonl`; the checked-in record pins its row count, group count,
