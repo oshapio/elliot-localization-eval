@@ -6,7 +6,7 @@ score reproduction or a full benchmark evaluation.
 
 ## Explicit model and protocol
 
-Lineage: Separate dense40 native-linear GRPO branch, step 50. Its parent identity must be read from the export/parent receipts; it is not assumed to descend from worker-safe 7145.
+Lineage: SFT worker-safe local 7145 → separate dense40 native-linear GRPO branch, step 50. Confirmed by this run’s parent_hf/overlay_report.json, which names the worker-safe-v006 step7145 sidecar checkpoint.
 
 The pre-RL worker-safe 7145 anchor is [run 0004](0004-worker-safe-7145-mixed-smoke7.md).
 These RL exports historically used the external native-processing plugin. This
