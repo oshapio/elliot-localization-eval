@@ -1,6 +1,6 @@
 # 0007 — allmodule-rl600: canonical compatibility smoke
 
-Status: prepared; not submitted. User authorized additional version smoke tests.
+Status: submitted as Slurm job **62806539**, 2026-10-29 20:53 UTC. User authorized additional version smoke tests.
 Seven queries, one GPU, debug QoS, 20-minute limit. This is not a historical
 score reproduction or a full benchmark evaluation.
 
@@ -14,8 +14,8 @@ smoke explicitly tests the canonical plugin and does not reproduce those scores.
 
 - HF export: `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/post_training/localization_grpo_native7145_20261012/runs/unfrozen-rl300-64-prod-v004/evaluation_automation/step_600/hf_export`. Its own tokenizer, processor and custom HF model code are loaded.
 - Config: [`0007-allmodule-rl600.json`](inputs/0007-allmodule-rl600.json); all model settings are explicit there.
-- Source: campaign revision committed and pushed before launch; exact revision
-  will be recorded in asset-identities.json and below after preparation. Runtime matches merged PR #2; only records/configs differ.
+- Source: committed and pushed campaign revision `62c579e`, in isolated Git
+  worktree `/leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval-rl-smokes`. Runtime matches merged PR #2; only records/configs differ.
 - Manifest: [`smoke_manifest_7_v1.jsonl`](../manifests/smoke_manifest_7_v1.jsonl),
   seven queries/groups with the SHA-256 pinned in the command below.
 - Prompt family: `elliot-loc`, built in `evals_localization/tasks.py` from query
@@ -40,7 +40,7 @@ until something parses.
 
 ## Attempt 1
 
-Job ID: pending.
+Job ID: **62806539**. One submission; no retry.
 
 The checkout must be at the committed campaign revision before executing:
 
@@ -74,5 +74,9 @@ all seven rendered prompts. `launch.sh` and `submission.json` preserve submissio
 `scores/scores.json` holds group diagnostics and scores. Batch logs are under
 `logs/`; `verification.json` will hold final coverage and geometry checks.
 
-Asset/tokenizer preflight, generation and scoring are pending. Passing execution, parse coverage and model accuracy are
+Asset preflight passed: all model shards and seven images exist; 1001 distinct
+coordinate tokens map to IDs 248077–249077. Model/config/scorer SHA-256 values,
+package versions and all seven rendered prompts are saved externally. The ignored
+compiled scorer binary is linked into this worktree as in run 0001.
+Generation and scoring results are pending. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.
