@@ -1,6 +1,6 @@
 # 0001 — Elliot cardinality-repair local-500 smoke test
 
-Status: prepared; not submitted. Authorized by the user for Leonardo debug QoS.
+Status: submitted as Slurm job **62797056** at 2026-10-29 19:49:50 UTC. Authorized by the user for Leonardo debug QoS.
 This checks the evaluation path, not benchmark performance.
 
 ## Model, code and inputs
@@ -10,7 +10,8 @@ This checks the evaluation path, not benchmark performance.
 - Remote checkout: `/leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval`.
 - Model, including its saved tokenizer/processor and custom HF code:
   `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/cache/eval-hf-exports/58552791`.
-  File identities will be captured in the external `asset-identities.json` receipt.
+  All 18 export files (including weights, tokenizer/processor and custom code)
+  have SHA-256 identities in the external `asset-identities.json` receipt.
 - Config: [`evaluator/configs/current/elliot_vllm.json`](../evaluator/configs/current/elliot_vllm.json).
 - Manifest: [`smoke_manifest_7_v1.jsonl`](../manifests/smoke_manifest_7_v1.jsonl).
   SHA-256: `0ecb79959cf9e38e869781bcab9a1e3f2d879e4a35d9ba362b2a9c8acebb09ca`.
@@ -24,7 +25,9 @@ This checks the evaluation path, not benchmark performance.
   16,384 context tokens, 65,536–4,194,304 image pixels, GPU memory utilization 0.8,
   CUDA graphs enabled. Special tokens are retained for decoding.
 - Runtime Python: `/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python`;
-  installed vLLM reports `0.24.0+cu129`. Other versions go in the external receipt.
+  vLLM `0.24.0+cu129`, torch `2.11.0+cu129`, Transformers `5.12.1`,
+  NumPy `2.3.5`, pycocotools `2.0.11`, Shapely `2.1.2`, qwen-vl-utils `0.0.14`,
+  Pillow `12.3.0`. Versions are also saved in the external receipt.
 - Scorer: tracked vendored source plus the existing platform-specific
   `fastevaluate.cpython-311-x86_64-linux-gnu.so`, linked from
   `/leonardo_work/EUHPC_E07_125/nas/elliot-vl-eval-vllm/evals_localization/vendor/fastevaluate/`.
@@ -35,7 +38,7 @@ This checks the evaluation path, not benchmark performance.
 Leonardo exposes debug service as QoS `boost_qos_dbg` on partition
 `boost_usr_prod`, with a 30-minute QoS limit. Request one GPU for 20 minutes.
 There was no existing `elliot-smoke7` job or run directory during preparation.
-Job ID: pending.
+Job ID: **62797056**. Submission succeeded; no earlier attempt.
 
 ```bash
 cd /leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval
