@@ -8,8 +8,8 @@ number 0001 is the first run recorded through this workflow.
 | Run | Model | Manifest | Status |
 | --- | --- | --- | --- |
 | [0001](0001-elliot-cardinality500-smoke7.md) | Elliot cardinality-repair local-500 | smoke_manifest_7_v1 (7 queries) | Completed; smoke passed (62797056) |
-| [0002](0002-v022-77938-refbox-smoke7.md) | v022-77938-refbox | smoke_manifest_7_v1 (7 queries) | Submitted: 62805245 |
-| [0003](0003-family-balanced-119000-mixed-smoke7.md) | family-balanced-119000-mixed | smoke_manifest_7_v1 (7 queries) | Submitted: 62805247 |
+| [0002](0002-v022-77938-refbox-smoke7.md) | v022-77938-refbox | smoke_manifest_7_v1 (7 queries) | Completed; detailed review pending (62805245) |
+| [0003](0003-family-balanced-119000-mixed-smoke7.md) | family-balanced-119000-mixed | smoke_manifest_7_v1 (7 queries) | Completed; detailed review pending (62805247) |
 | [0004](0004-worker-safe-7145-mixed-smoke7.md) | worker-safe-7145-mixed | smoke_manifest_7_v1 (7 queries) | Submitted: 62805249 |
 | [0005](0005-recovery-10000-mixed-smoke7.md) | recovery-10000-mixed | smoke_manifest_7_v1 (7 queries) | Submitted: 62805250 |
 | [0006](0006-language-rl300-smoke7.md) | language-rl300 | smoke_manifest_7_v1 (7 queries) | Submitted: 62806537 |
