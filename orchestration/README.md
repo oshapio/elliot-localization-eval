@@ -156,8 +156,11 @@ a different clean checkout; both resolved paths are recorded in the contract.
 
 ## Small smoke test with an existing HF export
 
-`manifests/smoke_7_v1.jsonl` contains seven unchanged rows from
-`benchmark_850_v4.jsonl`, one per localization family. Within each family the
+`manifests/smoke_manifest_7_v1.jsonl` is a smoke-test manifest: a list of seven
+evaluation queries copied unchanged from the routine-850 manifest
+`benchmark_850_v4.jsonl`, one per localization family. Each row identifies an
+image, the requested categories or target, ground truth and scoring protocol;
+it references existing images rather than containing image data. Within each family the
 selection minimizes `(target_count, sample_id)`. It covers box, point and GUI
 protocols while keeping generation small. Its scores only check that inference,
 decoding, merge and scoring execute; they are not benchmark performance estimates.
@@ -178,7 +181,7 @@ export EVAL_REPO="$PWD"
 export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
 export EVAL_DATA=/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData
 export CONFIG="$EVAL_REPO/evaluator/configs/current/elliot_vllm.json"
-export MANIFEST="$EVAL_REPO/manifests/smoke_7_v1.jsonl"
+export MANIFEST="$EVAL_REPO/manifests/smoke_manifest_7_v1.jsonl"
 export OUTPUT_DIR=/path/to/new/durable/elliot-cardinality500-smoke7-v1
 export PROMPT_FAMILY=elliot-loc BATCH_SIZE=1 MAX_NEW_TOKENS=4096
 export EXPECTED_MANIFEST_SHA256="$(sha256sum "$MANIFEST" | cut -d ' ' -f 1)"
