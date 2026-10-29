@@ -74,3 +74,12 @@ succeeded. Generation and scoring completed: seven rows and seven scored groups,
 error rows, seven nonempty predictions and zero token-cap hits. Detailed
 raw-response/geometry review and historical parity remain unverified. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.
+
+## Detailed output check
+
+All seven IDs match manifest order. Re-decoding each saved raw response with
+the configured decoder reproduces the saved predictions exactly. Every target
+has the expected box/point dimensions, ordered box corners and finite coordinates
+within the original image bounds. Evidence: external `verification.json`.
+This validates decoding, not prediction accuracy; several individual queries
+are wrong and the seven-query scores cannot rank checkpoints reliably.
