@@ -1,6 +1,7 @@
 # 0005 — recovery-10000-mixed: canonical compatibility smoke
 
-Status: submitted as Slurm job **62805250** on 2026-10-29 at 20:46 UTC. User authorized additional version smoke tests.
+Status: job **62805250** completed with exit `0:0` in **6m 21s**.
+Predictions and scores exist; detailed raw-response/geometry review pending. User authorized additional version smoke tests.
 Seven queries, one GPU, debug QoS, 20-minute limit. This is not a historical
 score reproduction or a full benchmark evaluation.
 
@@ -69,5 +70,7 @@ all seven rendered prompts. `launch.sh` and `submission.json` preserve submissio
 
 Preflight passed: all referenced weight shards and images exist; each tokenizer
 contains 1001 distinct coordinate tokens, IDs 248077–249077. CPU scorer imports
-succeeded. Generation and scoring results remain pending. Passing execution, parse coverage and model accuracy are
+succeeded. Generation and scoring completed: seven rows and seven scored groups, zero
+error rows, seven nonempty predictions and zero token-cap hits. Detailed
+raw-response/geometry review and historical parity remain unverified. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.

@@ -1,6 +1,6 @@
 # 0006 — language-rl300: canonical compatibility smoke
 
-Status: submitted as Slurm job **62806537**, 2026-10-29 20:53 UTC. User authorized additional version smoke tests.
+Status: **failed before generation**. Job **62806537**, exit `1:0`, elapsed **4m 21s**. User authorized additional version smoke tests.
 Seven queries, one GPU, debug QoS, 20-minute limit. This is not a historical
 score reproduction or a full benchmark evaluation.
 
@@ -78,5 +78,10 @@ Asset preflight passed: all model shards and seven images exist; 1001 distinct
 coordinate tokens map to IDs 248077–249077. Model/config/scorer SHA-256 values,
 package versions and all seven rendered prompts are saved externally. The ignored
 compiled scorer binary is linked into this worktree as in run 0001.
-Generation and scoring results are pending. Passing execution, parse coverage and model accuracy are
+No predictions or scores were produced. The exported `processing_elliot.py`
+imports `native_processor_call` from `elliot_grpo.native_resolution`. Transformers
+rejects processor loading because this dependency is absent. The canonical
+plugin loaded correctly; this is an exported-processor dependency failure.
+Do not rerun until this dependency is tracked and verified with CPU processor
+loading. No checkpoint or exported processor has been modified. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.
