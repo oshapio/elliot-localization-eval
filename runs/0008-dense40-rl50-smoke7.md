@@ -45,7 +45,7 @@ Job ID: pending.
 The checkout must be at the committed campaign revision before executing:
 
 ```bash
-cd /leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval
+cd /leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval-rl-smokes
 export EVAL_REPO="$PWD"
 export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
 export EVAL_DATA=/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData
