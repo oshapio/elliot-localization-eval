@@ -119,3 +119,8 @@ Status: CPU dependency preflight pending; no second job submitted yet. Full-suit
 submission remains gated on inspecting the smoke's raw responses, coordinates,
 coverage and scoring. Historical full result is a separate artifact; it is not
 relabelled as this fresh execution.
+
+Dependency identity for attempt 2: `elliot_grpo/native_resolution.py` SHA-256
+`1f15a6f803511fcb0168841ffcbb627246c5ab721c40ec3fb4aa2a685f502065`.
+The runtime's ignored compiled FasterEvaluate extension is symlinked from the
+existing score-repair checkout; evaluator Python code remains this PR's checkout.
