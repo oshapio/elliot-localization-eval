@@ -130,3 +130,12 @@ Immediately before submission, `squeue` returned no jobs. CPU preflight passed:
 AutoProcessor loaded the unchanged export; 640×480 RGB input produced 300 image
 tokens, patch grid 30×40, and 307 total sequence tokens. All 1001 coordinate
 tokens were unique (IDs 248077–249077). Dependency hash matched the pin above.
+
+Attempt 2 **PASS**: job 62985196 completed `0:0` in **6m17s**. Seven unique
+queries generated and scored; zero runtime errors, zero token-cap hits/retries.
+All seven raw responses independently re-decoded exactly to stored predictions;
+all seven original-image geometry and visual-token-grid checks passed.
+Evidence: `attempt2/verification.json`, merged `predictions.jsonl`, `scores/scores.json`
+and job logs. Outputs contain normal semantic mistakes (for example the COCO
+banana answer misses its target); smoke success establishes execution/format
+compatibility, not benchmark accuracy. Full evaluation is recorded as run 0013.
