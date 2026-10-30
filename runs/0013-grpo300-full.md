@@ -1,6 +1,6 @@
 # 0013 — GRPO v003 step 300, fresh canonical full evaluation
 
-Status: prepared; submission gated on run 0006 attempt 2 passing raw-output checks.
+Status: **submitted as job 62986106** after run 0006 attempt 2 passed raw-output checks.
 User requested this exact model after identifying its historical detection scores.
 
 Model and tokenizer/processor: same HF export as [0006](0006-language-rl300-smoke7.md),
@@ -37,3 +37,12 @@ Run `source` is a symlink to the committed Git worktree above, not copied evalua
 code. Predictions: `predictions/shard_*.jsonl`, merged `predictions/predictions.jsonl`;
 scores: `scores/scores.json`; logs: `logs/`. Submission evidence records source,
 config, manifest and export identities. No score is claimed before completion.
+
+Submission: **62986106**, source revision `0926feeb4a52c1f328a34aa65281df62458ed71b`.
+Queue audit immediately before submission returned no jobs. Input checks confirmed
+228133 unique IDs / 44 groups. Config SHA-256
+`6bc927522a6ff3611080440babba52533e0a9b3a58bc224abd79f28463bacbce`.
+`preflight.json` records export asset hashes and resolved paths;
+`submitted_job_id.txt` and `submission-slurm.txt` preserve scheduler evidence.
+Smoke 62985196 completed 0:0; seven independent decode/geometry checks passed.
+No full-run score exists yet.

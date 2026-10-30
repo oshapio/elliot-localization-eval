@@ -28,4 +28,4 @@ its scores report 228,133 samples, 44 groups and zero error rows. Existing
 combining comparisons; no duplicate full inference has been submitted.
 | [0011](0011-qwen35-full-backfill.md) | qwen | complete 44-group coverage via backfill | Completed: 228133 / 44 groups / 0 errors (62812166) |
 | [0012](0012-rex-full-backfill.md) | rex-omni | complete 44-group coverage via backfill | Inference complete; login rescore killed 137; partial scores retained (62812168) |
-| [0013](0013-grpo300-full.md) | Elliot GRPO v003 step 300 | fresh canonical full suite | Prepared; gated on smoke 0006 attempt 2 |
+| [0013](0013-grpo300-full.md) | Elliot GRPO v003 step 300 | fresh canonical full suite | Submitted: 62986106; smoke 0006 attempt 2 passed |
