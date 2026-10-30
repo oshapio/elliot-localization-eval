@@ -124,3 +124,9 @@ Dependency identity for attempt 2: `elliot_grpo/native_resolution.py` SHA-256
 `1f15a6f803511fcb0168841ffcbb627246c5ab721c40ec3fb4aa2a685f502065`.
 The runtime's ignored compiled FasterEvaluate extension is symlinked from the
 existing score-repair checkout; evaluator Python code remains this PR's checkout.
+
+Attempt 2 submitted as **62985196**, from committed revision `3ac03bb`.
+Immediately before submission, `squeue` returned no jobs. CPU preflight passed:
+AutoProcessor loaded the unchanged export; 640×480 RGB input produced 300 image
+tokens, patch grid 30×40, and 307 total sequence tokens. All 1001 coordinate
+tokens were unique (IDs 248077–249077). Dependency hash matched the pin above.
