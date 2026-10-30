@@ -116,7 +116,7 @@ mkdir -p "$RUN_DIR/combined-repair-v1"
   --eval-data "$EVAL_DATA" --output-dir "$RUN_DIR/combined-repair-v1/scores"'
 ```
 
-Scoring-retry job ID: pending. The intended final full result is
+Scoring-retry Slurm job: none. The user requested direct login-node execution. The intended final full result is
 `combined-repair-v1/scores/scores.json`. Report the 19 error rows and five
 wrong-dimension predictions explicitly; do not label this error-free.
 
@@ -125,3 +125,17 @@ score/merge/score body above is running directly on login02 with the same
 scoring revision and `OMP_NUM_THREADS=8`; no Slurm scoring job was submitted.
 Executed script: `score-repair-login.sh`; logs: `logs/score-repair-login.out`
 and `.err`. No inference was rerun.
+
+## Login-node recovery outcome
+
+The saved execution session returned exit **137** (killed). Subset scoring
+completed, all 228,133 predictions were merged, and at least 35 combined groups
+were scored at the last verified readback. The full combined score file is not
+accepted as complete. The reason for the kill has not been confirmed.
+
+Completed selected groups remain usable: HumanRef/RefCOCO values are from
+`combined-repair-v1/scores/scores.partial.json`; RefSpatial and ODinW values are
+from the completed subset `scores-repair-v1/scores/scores.json`. Preserve both.
+Next recovery should use the prepared CPU allocation with assigned memory,
+resuming scoring only from the saved predictions. SSH access expired at
+2026-10-30 06:25 UTC; no new recovery job was submitted after that failure.
