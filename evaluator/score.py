@@ -97,6 +97,10 @@ def referring_accuracy(rows):
         if not predictions or row['status'] == 'error':
             continue
         a, b = predictions[0], targets[0]
+        # A point is not a box: keep this query in the denominator as a miss.
+        # Do not skip to a later prediction, since this metric uses the first.
+        if len(a) != 4:
+            continue
         intersection = max(0, min(a[2], b[2])-max(a[0], b[0])) * max(0, min(a[3], b[3])-max(a[1], b[1]))
         union = max(0, a[2]-a[0])*max(0, a[3]-a[1]) + max(0, b[2]-b[0])*max(0, b[3]-b[1]) - intersection
         correct += union > 0 and intersection / union >= 0.5
@@ -107,6 +111,11 @@ def diagnostics(rows):
     """Summarize output coverage and spatial target counts."""
     return {
         "samples": len(rows),
+        "invalid_target_dimensions": sum(
+            len(target) not in ({2, 4} if row["benchmark_protocol"] == "gui"
+                                else {2} if row["benchmark_protocol"] == "point" else {4})
+            for row in rows for targets in row["predictions"].values() for target in targets
+        ),
         "errors": sum(row["status"] == "error" for row in rows),
         "nonempty_predictions": sum(bool(row["predictions"]) for row in rows),
         "predicted_targets": sum(len(values) for row in rows for values in row["predictions"].values()),

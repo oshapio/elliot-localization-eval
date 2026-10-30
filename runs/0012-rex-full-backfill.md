@@ -1,6 +1,7 @@
 # 0012 — rex-full-backfill
 
-Status: submitted as Slurm job **62812168**, 2026-10-29 21:30 UTC.
+Status: inference complete; initial scoring failed. Job **62812168**, exit `1:0`,
+elapsed **12m 02s**; inference step completed with exit `0:0` in **11m 42s**.
 The corresponding 22-query smoke passed execution, geometry and scoring checks. Using the stated default: backfill missing/error rows and retain verified
 compatible old rows, with original provenance preserved.
 
@@ -76,3 +77,51 @@ responses and per-row origin metadata. Never report subset scores as full scores
 Backfill submitted with 16 GPUs / four nodes and a two-hour limit. Both image
 and annotation preflights passed. Existing rows are retained separately; complete
 combined scores and job completion are still pending.
+
+## Scoring recovery — no inference rerun
+
+New inference has all 48,196 rows, with 19 error rows. Five additional box-query
+responses contain two-coordinate points. The referring scorer crashed indexing
+those points as boxes. PR #7 counts an invalid first prediction as a miss, keeps
+the query in the denominator, and reports invalid dimensions separately. Existing
+raw/decoded predictions and partial scores remain unchanged.
+
+Scoring source: commit `3165c72`, separate Git worktree below. Inference source
+remains `f4cb946`. Four scorer regression tests and nine adapter tests passed.
+The retry writes separate score/combined directories and preserves the failed job.
+
+Prepared CPU-only command (scorer worktree and compiled extension staged first):
+
+```bash
+export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
+export EVAL_DATA=/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData
+export SCORE_REPO=/leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval-score-repair
+export RUN_DIR=/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/0012-rex-full-backfill
+export OMP_NUM_THREADS=8
+sbatch --parsable --account=EUHPC_E07_125 --partition=lrd_all_serial --qos=normal \
+  --job-name=rex0012-score-repair --nodes=1 --ntasks=1 --cpus-per-task=8 \
+  --mem=24G --time=01:00:00 --output="$RUN_DIR/logs/score-repair-%j.out" \
+  --error="$RUN_DIR/logs/score-repair-%j.err" --wrap='set -eu
+"$EVAL_PYTHON" "$SCORE_REPO/evaluator/score.py" \
+  --predictions "$RUN_DIR/predictions/predictions.jsonl" \
+  --eval-data "$EVAL_DATA" --output-dir "$RUN_DIR/scores-repair-v1"
+mkdir -p "$RUN_DIR/combined-repair-v1"
+"$EVAL_PYTHON" "$SCORE_REPO/evaluator/merge.py" \
+  --manifest /leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v022_matched_step77938_228k_32gpu_debug_20260915/inputs/manifest.jsonl \
+  --shard "$RUN_DIR/inputs/reused_predictions.jsonl" \
+  --shard "$RUN_DIR/predictions/predictions.jsonl" \
+  --output "$RUN_DIR/combined-repair-v1/predictions.jsonl"
+"$EVAL_PYTHON" "$SCORE_REPO/evaluator/score.py" \
+  --predictions "$RUN_DIR/combined-repair-v1/predictions.jsonl" \
+  --eval-data "$EVAL_DATA" --output-dir "$RUN_DIR/combined-repair-v1/scores"'
+```
+
+Scoring-retry job ID: pending. The intended final full result is
+`combined-repair-v1/scores/scores.json`. Report the 19 error rows and five
+wrong-dimension predictions explicitly; do not label this error-free.
+
+The user subsequently requested running scoring on the login node. The exact
+score/merge/score body above is running directly on login02 with the same
+scoring revision and `OMP_NUM_THREADS=8`; no Slurm scoring job was submitted.
+Executed script: `score-repair-login.sh`; logs: `logs/score-repair-login.out`
+and `.err`. No inference was rerun.
