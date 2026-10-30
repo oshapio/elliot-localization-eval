@@ -54,6 +54,8 @@ def render(data):
     with (ROOT / 'comparison.csv').open('w', newline='') as handle:
         writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(['benchmark', 'metric', *[m['label'] for m in models]])
+        for field in ['checkpoint', 'step', 'checkpoint_sha256', 'checkpoint_identity']:
+            writer.writerow([field, 'identity', *[', '.join(map(str, m['source'].get('metadata', {}).get(field, []))) or 'Not imported' for m in models]])
         for spec in specs:
             writer.writerow([spec['label'], spec['metric'], *[
                 format(100 * m['metrics'][spec['key']], '.6f')
@@ -85,7 +87,7 @@ const data=JSON.parse(document.getElementById('data').textContent), chosen=new S
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function draw(){
  const ms=data.models.filter(m=>chosen.has(m.id)),q=document.getElementById('search').value.toLowerCase();
- document.getElementById('table').innerHTML='<thead><tr><th>Benchmark / metric</th>'+ms.map(m=>'<th>'+esc(m.label)+'<small>'+esc(m.kind)+'</small></th>').join('')+'</tr></thead><tbody>'+data.rows.filter(r=>(r.label+' '+r.metric).toLowerCase().includes(q)).map(r=>'<tr><td>'+esc(r.label)+'<small>'+esc(r.metric)+'</small></td>'+ms.map(m=>Object.hasOwn(m.metrics,r.key)?'<td title="Raw fraction: '+m.metrics[r.key]+'">'+(100*m.metrics[r.key]).toFixed(2)+'</td>':'<td class="missing">—</td>').join('')+'</tr>').join('')+'</tbody>';
+ document.getElementById('table').innerHTML='<thead><tr><th>Benchmark / metric</th>'+ms.map(m=>'<th>'+esc(m.label)+'<small>'+esc(m.id)+'</small><small>'+esc((m.source.metadata?.checkpoint||['Checkpoint path not imported']).join(', '))+'</small></th>').join('')+'</tr></thead><tbody>'+data.rows.filter(r=>(r.label+' '+r.metric).toLowerCase().includes(q)).map(r=>'<tr><td>'+esc(r.label)+'<small>'+esc(r.metric)+'</small></td>'+ms.map(m=>Object.hasOwn(m.metrics,r.key)?'<td title="Raw fraction: '+m.metrics[r.key]+'">'+(100*m.metrics[r.key]).toFixed(2)+'</td>':'<td class="missing">—</td>').join('')+'</tr>').join('')+'</tbody>';
  document.querySelectorAll('#models input').forEach(e=>e.checked=chosen.has(e.value));
 }
 document.getElementById('models').innerHTML=data.models.map(m=>'<label><input type="checkbox" value="'+esc(m.id)+'" checked> '+esc(m.label)+'</label>').join('');
@@ -93,11 +95,11 @@ document.getElementById('models').addEventListener('change',e=>{if(e.target.chec
 document.getElementById('search').oninput=draw;
 document.getElementById('csv').onclick=()=>{
  const cell=v=>'"'+String(v).replaceAll('"','""')+'"';
- const lines=[['benchmark','metric',...data.models.map(m=>m.label)],...data.rows.map(r=>[r.label,r.metric,...data.models.map(m=>Object.hasOwn(m.metrics,r.key)?(100*m.metrics[r.key]).toFixed(6):'')])];
+ const lines=[['benchmark','metric',...data.models.map(m=>m.label)],...['checkpoint','step','checkpoint_sha256','checkpoint_identity'].map(k=>[k,'identity',...data.models.map(m=>(m.source.metadata?.[k]||['Not imported']).join(', '))]),...data.rows.map(r=>[r.label,r.metric,...data.models.map(m=>Object.hasOwn(m.metrics,r.key)?(100*m.metrics[r.key]).toFixed(6):'')])];
  const url=URL.createObjectURL(new Blob([lines.map(r=>r.map(cell).join(',')).join('\\n')],{type:'text/csv;charset=utf-8'}));
  const a=document.createElement('a');a.href=url;a.download='comparison.csv';a.click();URL.revokeObjectURL(url);
 };
-document.getElementById('recent').onclick=()=>{chosen.clear();['worker-safe-local7145','qwen35-2b','rex-omni'].forEach(id=>chosen.add(id));draw()};
+document.getElementById('recent').onclick=()=>{chosen.clear();['worker-safe-local7145','grpo-native7145-step300','qwen35-2b','rex-omni'].forEach(id=>chosen.add(id));draw()};
 document.getElementById('all').onclick=()=>{data.models.forEach(m=>chosen.add(m.id));draw()};
 document.getElementById('sources').innerHTML=data.models.map(m=>'<details><summary>'+esc(m.label)+'</summary><p>'+esc(m.audit_status)+'</p><pre>'+esc(JSON.stringify({coverage:m.coverage,source:m.source},null,2))+'</pre></details>').join('');draw();
 </script>'''
@@ -128,9 +130,17 @@ All values are raw fractions ×100. Each row names its metric. HumanRef F1@0.5
 and mean F1 over IoU 0.5–0.95 are different rows. RefSpatial overall is weighted
 across 277 queries (100 Location, 100 Placement, 77 Unseen).
 
-| Benchmark | Metric | Elliot SFT7145 | Qwen3.5-2B | Rex-Omni |
-| --- | --- | ---: | ---: | ---: |
 """
+    text += '\n## Checkpoint identities and locations\n\n| Table label | Checkpoint / export location | Step | Recorded checkpoint hash / identity |\n| --- | --- | --- | --- |\n'
+    for model in data['models']:
+        meta = model['source'].get('metadata', {})
+        def field(key):
+            return ', '.join(map(str, meta.get(key, []))) or 'Not imported'
+        text += '| ' + ' | '.join([model['label'], '`' + field('checkpoint') + '`', field('step'), '`' + (field('checkpoint_sha256') if meta.get('checkpoint_sha256') else field('checkpoint_identity')) + '`']) + ' |\n'
+    text += '\n## Detection: SFT parent versus the recalled GRPO checkpoint\n\n| Benchmark | Metric | SFT worker-safe 7145 | GRPO v003 step 300 |\n| --- | --- | ---: | ---: |\n'
+    for row in specs[:5]:
+        text += '| ' + ' | '.join([row['label'], row['metric'], value(byid['worker-safe-local7145'], row['key']), value(byid['grpo-native7145-step300'], row['key'])]) + ' |\n'
+    text += '\nThe five recalled scores match **GRPO v003 step 300**, not its SFT 7145 parent. GRPO values come from archived score content plus its contract/validation; remote files have not been rechecked this session. `checkpoint_identity` is the contract identity, not a newly computed weights checksum.\n\n## Referring comparison (SFT parent and baselines)\n\n| Benchmark | Metric | Elliot SFT7145 | Qwen3.5-2B | Rex-Omni |\n| --- | --- | ---: | ---: | ---: |\n'
     for row in selected:
         text += '| ' + ' | '.join([row['label'], row['metric'],
                                     *[value(m, row['key']) for m in current]]) + ' |\n'

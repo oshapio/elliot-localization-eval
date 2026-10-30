@@ -12,6 +12,42 @@ All values are raw fractions ×100. Each row names its metric. HumanRef F1@0.5
 and mean F1 over IoU 0.5–0.95 are different rows. RefSpatial overall is weighted
 across 277 queries (100 Location, 100 Placement, 77 Unseen).
 
+
+## Checkpoint identities and locations
+
+| Table label | Checkpoint / export location | Step | Recorded checkpoint hash / identity |
+| --- | --- | --- | --- |
+| v035 step 131000 | `Not imported` | 131000 | `Not imported` |
+| bbox2d-100k local 1000 | `Not imported` | 1000 | `Not imported` |
+| synthetic20 local 1000 | `Not imported` | 1000 | `Not imported` |
+| v037 step 134500 | `Not imported` | 134500 | `Not imported` |
+| v037 step 139500 | `Not imported` | 139500 | `Not imported` |
+| v037 step 137000 | `Not imported` | 137000 | `Not imported` |
+| format repair local 500 | `Not imported` | 500 | `Not imported` |
+| dense/GUI local 5000 | `Not imported` | 5000 | `Not imported` |
+| cardinality-neutral local 2000 | `Not imported` | 2000 | `b8d01917095e5b9f60b89208962117aa6139c9723ca580022e0b55901bd6dd11` |
+| worker-safe local 1750 | `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/exports/worker-safe-v006-59984237-step1750-sidecar/converted/torch/iter_0001750/mp_rank_00/model_optim_rng.pt` | 1750 | `27bda5b8a847cd81e76b665c03b145203be39e87a142643bc1ca722f2ff3447e` |
+| worker-safe local 7145 (pre-RL parent) | `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/exports/worker-safe-v006-59984237-step7145-sidecar/converted/torch/iter_0007145/mp_rank_00/model_optim_rng.pt` | 7145 | `5b63c8197ef2b3812b814d7ceed50455cffbfc4f05287db1d6e14b2e2c280eab` |
+| packing-corrected local 500 | `Not imported` | 500 | `67275b6a81d1e09c960717b19a8fb6744c8f4eea5e84396069a3d47ff889f312` |
+| synthetic40 local 5000 | `Not imported` | 5000 | `Not imported` |
+| Qwen3.5-2B | `Not imported` | Not imported | `Not imported` |
+| Rex-Omni | `Not imported` | Not imported | `Not imported` |
+| Elliot GRPO v003 / local 300 | `/leonardo_scratch/large/userexternal/auselis0/elliot-localization/post_training/localization_grpo_native7145_20261012/runs/native7145-fast-kernels-production-v003/evaluation_automation/step_300/hf_export` | 300 | `6526afc627c9120948f113eea391a3fe7874dbee45c8ec5f7884e946a04ba29e` |
+
+## Detection: SFT parent versus the recalled GRPO checkpoint
+
+| Benchmark | Metric | SFT worker-safe 7145 | GRPO v003 step 300 |
+| --- | --- | ---: | ---: |
+| COCO / boxes | F1@0.5 | 70.90 | 71.14 |
+| Dense200 / boxes | F1@0.5 | 51.70 | 54.57 |
+| LVIS / boxes | F1@0.5 | 63.76 | 64.28 |
+| VisDrone / boxes | F1@0.5 | 56.65 | 58.81 |
+| ODinW13 overall | mean_dataset_mAP | 35.48 | 36.47 |
+
+The five recalled scores match **GRPO v003 step 300**, not its SFT 7145 parent. GRPO values come from archived score content plus its contract/validation; remote files have not been rechecked this session. `checkpoint_identity` is the contract identity, not a newly computed weights checksum.
+
+## Referring comparison (SFT parent and baselines)
+
 | Benchmark | Metric | Elliot SFT7145 | Qwen3.5-2B | Rex-Omni |
 | --- | --- | ---: | ---: | ---: |
 | ODinW13 overall | mean_dataset_mAP | 35.48 | 23.62 | 42.73 |
