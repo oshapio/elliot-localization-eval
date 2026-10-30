@@ -119,3 +119,9 @@ mkdir -p "$RUN_DIR/combined-repair-v1"
 Scoring-retry job ID: pending. The intended final full result is
 `combined-repair-v1/scores/scores.json`. Report the 19 error rows and five
 wrong-dimension predictions explicitly; do not label this error-free.
+
+The user subsequently requested running scoring on the login node. The exact
+score/merge/score body above is running directly on login02 with the same
+scoring revision and `OMP_NUM_THREADS=8`; no Slurm scoring job was submitted.
+Executed script: `score-repair-login.sh`; logs: `logs/score-repair-login.out`
+and `.err`. No inference was rerun.

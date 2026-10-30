@@ -83,3 +83,22 @@ combined scores and job completion are still pending.
 rows**. The new inference subset has 48,174 rows / 22 groups / zero errors.
 Slurm inference and batch steps completed successfully. These are combined
 historical/new generations, with origin metadata retained as described above.
+
+## Newly covered benchmark scores
+
+Qwen3.5-2B, read directly from `combined/scores/scores.json`:
+
+| Benchmark | Metric | Score (×100) |
+| --- | --- | ---: |
+| ODinW13 | mean dataset mAP | 23.62 |
+| RefSpatialBench (277 queries) | accuracy | 24.19 |
+| RefCOCO val | Acc@IoU0.5 | 86.18 |
+| RefCOCO testA | Acc@IoU0.5 | 87.86 |
+| RefCOCO testB | Acc@IoU0.5 | 82.32 |
+| RefCOCO+ val | Acc@IoU0.5 | 76.50 |
+| RefCOCO+ testA | Acc@IoU0.5 | 80.88 |
+| RefCOCO+ testB | Acc@IoU0.5 | 71.04 |
+
+RefCOCOg box accuracy was already present in the reused baseline coverage:
+val 84.93%, test 84.80%. Do not confuse box accuracy with the separate pointing
+F1 results. Full combined coverage is 228,133 queries / 44 groups / zero error rows.
