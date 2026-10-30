@@ -1,6 +1,6 @@
 # 0011 — qwen35-full-backfill
 
-Status: submitted as Slurm job **62812166**, 2026-10-29 21:30 UTC.
+Status: **completed**, Slurm job **62812166**, exit `0:0`, elapsed **28m 27s**.
 The corresponding 22-query smoke passed execution, geometry and scoring checks. Using the stated default: backfill missing/error rows and retain verified
 compatible old rows, with original provenance preserved.
 
@@ -76,3 +76,10 @@ responses and per-row origin metadata. Never report subset scores as full scores
 Backfill submitted with 16 GPUs / four nodes and a two-hour limit. Both image
 and annotation preflights passed. Existing rows are retained separately; complete
 combined scores and job completion are still pending.
+
+## Completed result
+
+`combined/scores/scores.json` reports **228,133 samples / 44 groups / zero error
+rows**. The new inference subset has 48,174 rows / 22 groups / zero errors.
+Slurm inference and batch steps completed successfully. These are combined
+historical/new generations, with origin metadata retained as described above.

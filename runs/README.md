@@ -26,5 +26,5 @@ Its contract pins the 228,133-query / 44-group manifest and checkpoint hash;
 its scores report 228,133 samples, 44 groups and zero error rows. Existing
 `validation.json` and prediction metadata remain the evidence to audit before
 combining comparisons; no duplicate full inference has been submitted.
-| [0011](0011-qwen35-full-backfill.md) | qwen | complete 44-group coverage via backfill | Submitted: 62812166 |
-| [0012](0012-rex-full-backfill.md) | rex-omni | complete 44-group coverage via backfill | Submitted: 62812168 |
+| [0011](0011-qwen35-full-backfill.md) | qwen | complete 44-group coverage via backfill | Completed: 228133 / 44 groups / 0 errors (62812166) |
+| [0012](0012-rex-full-backfill.md) | rex-omni | complete 44-group coverage via backfill | Inference complete; scoring repair pending (62812168) |
