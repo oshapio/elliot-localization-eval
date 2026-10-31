@@ -45,7 +45,7 @@ Queue audit immediately before submission returned no jobs. Input checks confirm
 `preflight.json` records export asset hashes and resolved paths;
 `submitted_job_id.txt` and `submission-slurm.txt` preserve scheduler evidence.
 Smoke 62985196 completed 0:0; seven independent decode/geometry checks passed.
-No full-run score exists yet.
+At submission, no full-run score existed; completion is recorded below.
 
 ## Completed score readback
 
