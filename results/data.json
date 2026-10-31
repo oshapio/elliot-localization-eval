@@ -1,0 +1,1253 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-30",
+  "scope": "13 archived full checkpoint evaluations plus selected verified baseline readbacks; not every saved checkpoint. Includes archived GRPO v003 step300 evidence, separately identified.",
+  "models": [
+    {
+      "id": "v035-131000",
+      "label": "v035 step 131000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/full131000/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v035_step131000_228k_mixedspecial_20260921/scores/scores.json",
+        "score_sha256": "4290cc0a354e37e630bd68081f5c527eee8a134e71f167d1f84c5a8563921bd0",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/full131000/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            131000
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v035_step131000_228k_mixedspecial_20260921/scores/scores.json"
+          ],
+          "score_sha256": [
+            "4290cc0a354e37e630bd68081f5c527eee8a134e71f167d1f84c5a8563921bd0"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.590007371748812,
+        "box/Dense200|F1@0.5": 0.31493116308520797,
+        "box/DocLayNet|F1@0.5": 0.8413712926416456,
+        "box/HierText|F1@0.5": 0.685872223164513,
+        "box/HumanRef|F1@0.5": 0.39157639938742084,
+        "box/HumanRef|F1@mean": 0.362862798453829,
+        "box/IC15|F1@0.5": 0.9311591874300781,
+        "box/LVIS|F1@0.5": 0.6283038804558787,
+        "box/M6Doc|F1@0.5": 0.6267115495782841,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.07550468066870161,
+        "box/ODinW13_Aquarium|mAP": 0.08556081749390124,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7461363783437167,
+        "box/ODinW13_EgoHands|mAP": 0.04173543399378643,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.4746318862655497,
+        "box/ODinW13_Packages|mAP": 0.5786303630363037,
+        "box/ODinW13_PascalVOC|mAP": 0.046998335950684644,
+        "box/ODinW13_Raccoon|mAP": 0.3604622243600879,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.18585190701898754,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.11231184068944179,
+        "box/ODinW13_pistols|mAP": 0.4953992748091241,
+        "box/ODinW13_pothole|mAP": 0.07619923188084507,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.30301336128470385,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9172196996157876,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8355491920638167,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8774865216583008,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9390136114548348,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9099116781157998,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9280967325087687,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.9031011799102016,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.9018204131724279,
+        "box/SROIE|F1@0.5": 0.9721155301089767,
+        "box/TotalText|F1@0.5": 0.9206321269784294,
+        "box/VisDrone|F1@0.5": 0.5699821339137812,
+        "gui/screenspot_v2|accuracy": 0.8844339622641509,
+        "gui/sspro|accuracy": 0.4414927261227071,
+        "point/COCO|F1@0.5": 0.8001189365048368,
+        "point/Dense200|F1@0.5": 0.6256300618024976,
+        "point/HumanRef|F1@0.5": 0.49568491388431035,
+        "point/LVIS|F1@0.5": 0.7425272706729101,
+        "point/RefCOCOg_test|F1@0.5": 0.8476186497328275,
+        "point/RefCOCOg_val|F1@0.5": 0.8464223674766261,
+        "point/RefSpatialBench_Location|accuracy": 0.59,
+        "point/RefSpatialBench_Placement|accuracy": 0.37,
+        "point/RefSpatialBench_Unseen|accuracy": 0.35064935064935066,
+        "point/VisDrone|F1@0.5": 0.4780640632893718,
+        "suite/ODinW13|mean_dataset_mAP": 0.27557197967660263,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.44404332129963897
+      }
+    },
+    {
+      "id": "bbox2d-local1000",
+      "label": "bbox2d-100k local 1000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/full-bbox2d100k-step1000/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_bbox2d100k_step1000_228k_mixedspecial_20260922/scores/scores.json",
+        "score_sha256": "d6c32f05b77c30094d0b6ed2e6357af8f9c71ec420f2e7ced186efe2ceca3a56",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/full-bbox2d100k-step1000/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            1000
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_bbox2d100k_step1000_228k_mixedspecial_20260922/scores/scores.json"
+          ],
+          "score_sha256": [
+            "d6c32f05b77c30094d0b6ed2e6357af8f9c71ec420f2e7ced186efe2ceca3a56"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.38656190222666187,
+        "box/Dense200|F1@0.5": 0.0005756857433118863,
+        "box/DocLayNet|F1@0.5": 0.1996610208957771,
+        "box/HierText|F1@0.5": 0.5746546944031219,
+        "box/HumanRef|F1@0.5": 0.32644453868471146,
+        "box/HumanRef|F1@mean": 0.30469368946140307,
+        "box/IC15|F1@0.5": 0.6969889691010026,
+        "box/LVIS|F1@0.5": 0.4969305104176958,
+        "box/M6Doc|F1@0.5": 0.3540775572396709,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.04783872672981584,
+        "box/ODinW13_Aquarium|mAP": 0.03662718318432917,
+        "box/ODinW13_CottontailRabbits|mAP": 0.30796793965110797,
+        "box/ODinW13_EgoHands|mAP": 0.025451302082377315,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.0,
+        "box/ODinW13_Packages|mAP": 0.0,
+        "box/ODinW13_PascalVOC|mAP": 0.038157387693606624,
+        "box/ODinW13_Raccoon|mAP": 0.0,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.11242416188214717,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.11764264055197751,
+        "box/ODinW13_pistols|mAP": 0.14818236739548007,
+        "box/ODinW13_pothole|mAP": 0.10512118315664541,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.22835964291153948,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.354697869367796,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.2303129474330129,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.29940509388362146,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.38112073537210533,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.24887144259077526,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.30875023075503044,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.48177926281716615,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.4823072202904479,
+        "box/SROIE|F1@0.5": 0.7364515106266993,
+        "box/TotalText|F1@0.5": 0.633446961823563,
+        "box/VisDrone|F1@0.5": 0.10062405334729506,
+        "gui/screenspot_v2|accuracy": 0.6367924528301887,
+        "gui/sspro|accuracy": 0.3738140417457306,
+        "point/COCO|F1@0.5": 0.5530670972316593,
+        "point/Dense200|F1@0.5": 0.01899472184575374,
+        "point/HumanRef|F1@0.5": 0.3749721096163461,
+        "point/LVIS|F1@0.5": 0.52353118387458,
+        "point/RefCOCOg_test|F1@0.5": 0.7587579375342305,
+        "point/RefCOCOg_val|F1@0.5": 0.748267629797114,
+        "point/RefSpatialBench_Location|accuracy": 0.31,
+        "point/RefSpatialBench_Placement|accuracy": 0.2033333333333333,
+        "point/RefSpatialBench_Unseen|accuracy": 0.17316017316017318,
+        "point/VisDrone|F1@0.5": 0.2549271715182514,
+        "suite/ODinW13|mean_dataset_mAP": 0.08982865655684819,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.233453670276775
+      }
+    },
+    {
+      "id": "synthetic20-local1000",
+      "label": "synthetic20 local 1000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/synthdense-v2-58488630/full1000/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_synthdensev2_step1000_228k_mixedspecial_20260924/scores/scores.json",
+        "score_sha256": "81740fbc854855e668be2cd08df51824a8bc537886d80674ce0b192de8fc14f2",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/synthdense-v2-58488630/full1000/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            1000
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_synthdensev2_step1000_228k_mixedspecial_20260924/scores/scores.json"
+          ],
+          "score_sha256": [
+            "81740fbc854855e668be2cd08df51824a8bc537886d80674ce0b192de8fc14f2"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7035601187937702,
+        "box/Dense200|F1@0.5": 0.5612950903903065,
+        "box/DocLayNet|F1@0.5": 0.8512966466459038,
+        "box/HierText|F1@0.5": 0.6823356047584939,
+        "box/HumanRef|F1@0.5": 0.8165106682826675,
+        "box/HumanRef|F1@mean": 0.7650425998098582,
+        "box/IC15|F1@0.5": 0.921242767843768,
+        "box/LVIS|F1@0.5": 0.6273431540745582,
+        "box/M6Doc|F1@0.5": 0.658657348380764,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.08446558845196245,
+        "box/ODinW13_Aquarium|mAP": 0.07369226297358909,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7446872544397297,
+        "box/ODinW13_EgoHands|mAP": 0.5123117789290983,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.46986712957009996,
+        "box/ODinW13_Packages|mAP": 0.7635313531353135,
+        "box/ODinW13_PascalVOC|mAP": 0.03787843792944225,
+        "box/ODinW13_Raccoon|mAP": 0.49860832222387286,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.1801693636721575,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12894238982752726,
+        "box/ODinW13_pistols|mAP": 0.5551446008250013,
+        "box/ODinW13_pothole|mAP": 0.12579175161699102,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.32295921833617747,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9095354523227384,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8206177132337902,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8719092768172523,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9372458900477285,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8969578017664377,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9212663836071626,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8922418293828965,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8924115361014522,
+        "box/SROIE|F1@0.5": 0.9717882607332592,
+        "box/TotalText|F1@0.5": 0.9241914295160853,
+        "box/VisDrone|F1@0.5": 0.5734292128215128,
+        "gui/screenspot_v2|accuracy": 0.8663522012578616,
+        "gui/sspro|accuracy": 0.433270082226439,
+        "point/COCO|F1@0.5": 0.7020656376104137,
+        "point/Dense200|F1@0.5": 0.6774775205689636,
+        "point/HumanRef|F1@0.5": 0.4914697198951452,
+        "point/LVIS|F1@0.5": 0.6663604726680323,
+        "point/RefCOCOg_test|F1@0.5": 0.7462102769202554,
+        "point/RefCOCOg_val|F1@0.5": 0.7476801260422299,
+        "point/RefSpatialBench_Location|accuracy": 0.5438333333333333,
+        "point/RefSpatialBench_Placement|accuracy": 0.315,
+        "point/RefSpatialBench_Unseen|accuracy": 0.288961038961039,
+        "point/VisDrone|F1@0.5": 0.4644051435213743,
+        "suite/ODinW13|mean_dataset_mAP": 0.34600380399468944,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.39037304452466903
+      }
+    },
+    {
+      "id": "v037-134500",
+      "label": "v037 step 134500",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/v037-cadence/full134500/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v037_step134500_228k_mixedspecial_20260922/scores/scores.json",
+        "score_sha256": "ba6c867ee4923c82c078b52f31c3c0c98a39e4df6dd56e0b5e7e4340393350e6",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/v037-cadence/full134500/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            134500
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v037_step134500_228k_mixedspecial_20260922/scores/scores.json"
+          ],
+          "score_sha256": [
+            "ba6c867ee4923c82c078b52f31c3c0c98a39e4df6dd56e0b5e7e4340393350e6"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.5031880649329887,
+        "box/Dense200|F1@0.5": 0.0391239172223827,
+        "box/DocLayNet|F1@0.5": 0.3171214370320825,
+        "box/HierText|F1@0.5": 0.646883039289774,
+        "box/HumanRef|F1@0.5": 0.07969462293347218,
+        "box/HumanRef|F1@mean": 0.07423265303928837,
+        "box/IC15|F1@0.5": 0.7134847920830771,
+        "box/LVIS|F1@0.5": 0.45347789726592874,
+        "box/M6Doc|F1@0.5": 0.26145068350684747,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.002884488448844884,
+        "box/ODinW13_Aquarium|mAP": 0.04543969420881954,
+        "box/ODinW13_CottontailRabbits|mAP": 0.08415841584158416,
+        "box/ODinW13_EgoHands|mAP": 0.03665369644193344,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.27749999999999997,
+        "box/ODinW13_Packages|mAP": 0.0,
+        "box/ODinW13_PascalVOC|mAP": 0.03670843416756416,
+        "box/ODinW13_Raccoon|mAP": 0.15066006600660065,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.16552176248755013,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.07599526250992493,
+        "box/ODinW13_pistols|mAP": 0.16355607138814857,
+        "box/ODinW13_pothole|mAP": 0.003795379537953794,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.10908938855134791,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9144254278728606,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8343219472284721,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8761851645287229,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9386600671734134,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9057899901864573,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9270814103747461,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8969405868225958,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8983432194722847,
+        "box/SROIE|F1@0.5": 0.9728124927386593,
+        "box/TotalText|F1@0.5": 0.8786161621719505,
+        "box/VisDrone|F1@0.5": 0.15885849915752445,
+        "gui/screenspot_v2|accuracy": 0.875,
+        "gui/sspro|accuracy": 0.43453510436432635,
+        "point/COCO|F1@0.5": 0.7979960897304071,
+        "point/Dense200|F1@0.5": 0.5880188420678679,
+        "point/HumanRef|F1@0.5": 0.5009007586765136,
+        "point/LVIS|F1@0.5": 0.7413204823593336,
+        "point/RefCOCOg_test|F1@0.5": 0.8456268789126414,
+        "point/RefCOCOg_val|F1@0.5": 0.846342196690454,
+        "point/RefSpatialBench_Location|accuracy": 0.61,
+        "point/RefSpatialBench_Placement|accuracy": 0.49,
+        "point/RefSpatialBench_Unseen|accuracy": 0.44155844155844154,
+        "point/VisDrone|F1@0.5": 0.46150606669233357,
+        "suite/ODinW13|mean_dataset_mAP": 0.08861251227617478,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.51985559566787
+      }
+    },
+    {
+      "id": "v037-139500",
+      "label": "v037 step 139500",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/v037-cadence/full139500/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v037_step139500_228k_mixedspecial_20260922/scores/scores.json",
+        "score_sha256": "6c1dd51a93b0dafe51cc8337a4c7e98fa281fe7ecea2438002dbe5d88cfe9b74",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/v037-cadence/full139500/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            139500
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v037_step139500_228k_mixedspecial_20260922/scores/scores.json"
+          ],
+          "score_sha256": [
+            "6c1dd51a93b0dafe51cc8337a4c7e98fa281fe7ecea2438002dbe5d88cfe9b74"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.692351535329558,
+        "box/Dense200|F1@0.5": 0.31253423308154793,
+        "box/DocLayNet|F1@0.5": 0.7823437399393268,
+        "box/HierText|F1@0.5": 0.6789935063062535,
+        "box/HumanRef|F1@0.5": 0.746009651663333,
+        "box/HumanRef|F1@mean": 0.700119510645546,
+        "box/IC15|F1@0.5": 0.9155677105508582,
+        "box/LVIS|F1@0.5": 0.6225239762034134,
+        "box/M6Doc|F1@0.5": 0.6525706025896786,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.04198328761983476,
+        "box/ODinW13_Aquarium|mAP": 0.07091504862419458,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7643847241867043,
+        "box/ODinW13_EgoHands|mAP": 0.38308920831073584,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.5229211135399255,
+        "box/ODinW13_Packages|mAP": 0.47128712871287126,
+        "box/ODinW13_PascalVOC|mAP": 0.04570386488974339,
+        "box/ODinW13_Raccoon|mAP": 0.505362619445118,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.19703717203690138,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12711183060351516,
+        "box/ODinW13_pistols|mAP": 0.522146450098176,
+        "box/ODinW13_pothole|mAP": 0.11445332504150002,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.37446610567174166,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9196646873908487,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8308447535283289,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.876278118609407,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9418419657062047,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9065750736015702,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.92717371238693,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8950610838467161,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8960932706074862,
+        "box/SROIE|F1@0.5": 0.9746500566911531,
+        "box/TotalText|F1@0.5": 0.9329649340065999,
+        "box/VisDrone|F1@0.5": 0.5334786869768935,
+        "gui/screenspot_v2|accuracy": 0.8663522012578616,
+        "gui/sspro|accuracy": 0.4187223276407337,
+        "point/COCO|F1@0.5": 0.8007512130208764,
+        "point/Dense200|F1@0.5": 0.5448452500951422,
+        "point/HumanRef|F1@0.5": 0.5063650645763371,
+        "point/LVIS|F1@0.5": 0.7409657821987826,
+        "point/RefCOCOg_test|F1@0.5": 0.8524785603293694,
+        "point/RefCOCOg_val|F1@0.5": 0.8496251621244068,
+        "point/RefSpatialBench_Location|accuracy": 0.36,
+        "point/RefSpatialBench_Placement|accuracy": 0.29,
+        "point/RefSpatialBench_Unseen|accuracy": 0.2987012987012987,
+        "point/VisDrone|F1@0.5": 0.47582122127614523,
+        "suite/ODinW13|mean_dataset_mAP": 0.31852783682930474,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.3176895306859206
+      }
+    },
+    {
+      "id": "v037-137000",
+      "label": "v037 step 137000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/v037-cadence/full137000/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v037_step137000_228k_mixedspecial_20260922/scores/scores.json",
+        "score_sha256": "d7a1d914e71303d80bd345d74112efb2843098a6f9c4353c61e9e416671a3cae",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/v037-cadence/full137000/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            137000
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_v037_step137000_228k_mixedspecial_20260922/scores/scores.json"
+          ],
+          "score_sha256": [
+            "d7a1d914e71303d80bd345d74112efb2843098a6f9c4353c61e9e416671a3cae"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.6509407180715732,
+        "box/Dense200|F1@0.5": 0.23176382173667473,
+        "box/DocLayNet|F1@0.5": 0.8193804728122362,
+        "box/HierText|F1@0.5": 0.6847011240710874,
+        "box/HumanRef|F1@0.5": 0.6315321402626676,
+        "box/HumanRef|F1@mean": 0.5905482849614481,
+        "box/IC15|F1@0.5": 0.8594724842936697,
+        "box/LVIS|F1@0.5": 0.6132663716706057,
+        "box/M6Doc|F1@0.5": 0.6305237943447038,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.03758253953876014,
+        "box/ODinW13_Aquarium|mAP": 0.06378458468516486,
+        "box/ODinW13_CottontailRabbits|mAP": 0.6464119941405907,
+        "box/ODinW13_EgoHands|mAP": 0.38178727934971934,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.4965362401624779,
+        "box/ODinW13_Packages|mAP": 0.6477887788778878,
+        "box/ODinW13_PascalVOC|mAP": 0.04206746669286693,
+        "box/ODinW13_Raccoon|mAP": 0.4168721301404192,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.1756633511142308,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.11728244067542033,
+        "box/ODinW13_pistols|mAP": 0.40427425114621024,
+        "box/ODinW13_pothole|mAP": 0.056338113939805104,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3036478917045925,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9079636744673419,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8298220494988751,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8685629299126232,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9328265865299629,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9059862610402355,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9216355916558981,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8909888273989767,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8895479648189814,
+        "box/SROIE|F1@0.5": 0.9719093202835714,
+        "box/TotalText|F1@0.5": 0.9180172321877986,
+        "box/VisDrone|F1@0.5": 0.5367672467833454,
+        "gui/screenspot_v2|accuracy": 0.8687106918238994,
+        "gui/sspro|accuracy": 0.4370651486401012,
+        "point/COCO|F1@0.5": 0.7986868018082941,
+        "point/Dense200|F1@0.5": 0.5895449412825186,
+        "point/HumanRef|F1@0.5": 0.4989308925750004,
+        "point/LVIS|F1@0.5": 0.7395746109990811,
+        "point/RefCOCOg_test|F1@0.5": 0.8491610126418938,
+        "point/RefCOCOg_val|F1@0.5": 0.8449678360577337,
+        "point/RefSpatialBench_Location|accuracy": 0.57,
+        "point/RefSpatialBench_Placement|accuracy": 0.36,
+        "point/RefSpatialBench_Unseen|accuracy": 0.37662337662337664,
+        "point/VisDrone|F1@0.5": 0.47811136160816686,
+        "suite/ODinW13|mean_dataset_mAP": 0.29154131247447274,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.4404332129963899
+      }
+    },
+    {
+      "id": "format-repair-local500",
+      "label": "format repair local 500",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/formatrepair955-58408700/full500/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_formatrepair955_step500_228k_mixedspecial_20260923/scores/scores.json",
+        "score_sha256": "92428daa5ae162db91d58f5949f420fdfbab3ebab93a45395c1b31fa24c49c5a",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/formatrepair955-58408700/full500/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            500
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_formatrepair955_step500_228k_mixedspecial_20260923/scores/scores.json"
+          ],
+          "score_sha256": [
+            "92428daa5ae162db91d58f5949f420fdfbab3ebab93a45395c1b31fa24c49c5a"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7023392901786749,
+        "box/Dense200|F1@0.5": 0.4962307112515916,
+        "box/DocLayNet|F1@0.5": 0.8502907871573441,
+        "box/HierText|F1@0.5": 0.6766717108043592,
+        "box/HumanRef|F1@0.5": 0.8004558329062564,
+        "box/HumanRef|F1@mean": 0.750782618343346,
+        "box/IC15|F1@0.5": 0.9228171030279131,
+        "box/LVIS|F1@0.5": 0.6207886978287317,
+        "box/M6Doc|F1@0.5": 0.6345838809033695,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.08272360557596493,
+        "box/ODinW13_Aquarium|mAP": 0.06481587293411172,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7553167222448097,
+        "box/ODinW13_EgoHands|mAP": 0.5149616968416718,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.4971962196219621,
+        "box/ODinW13_Packages|mAP": 0.7635313531353135,
+        "box/ODinW13_PascalVOC|mAP": 0.046354148526729054,
+        "box/ODinW13_Raccoon|mAP": 0.5220254248381101,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.1871979521910934,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.13012128274549228,
+        "box/ODinW13_pistols|mAP": 0.5694348676459745,
+        "box/ODinW13_pothole|mAP": 0.10046971446276959,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3063371100362023,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9091861683548725,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8122315401922684,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8677263431864659,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9367155736255967,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8944062806673209,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9180358131807274,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8876474887751905,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8877070975659644,
+        "box/SROIE|F1@0.5": 0.9743261271963007,
+        "box/TotalText|F1@0.5": 0.9290416820523603,
+        "box/VisDrone|F1@0.5": 0.5642287391768243,
+        "gui/screenspot_v2|accuracy": 0.8726415094339622,
+        "gui/sspro|accuracy": 0.4478178368121442,
+        "point/COCO|F1@0.5": 0.7461225303648663,
+        "point/Dense200|F1@0.5": 0.6431784613874089,
+        "point/HumanRef|F1@0.5": 0.4924452329148097,
+        "point/LVIS|F1@0.5": 0.696493456636368,
+        "point/RefCOCOg_test|F1@0.5": 0.792757998958512,
+        "point/RefCOCOg_val|F1@0.5": 0.792256492250871,
+        "point/RefSpatialBench_Location|accuracy": 0.44416666666666665,
+        "point/RefSpatialBench_Placement|accuracy": 0.295,
+        "point/RefSpatialBench_Unseen|accuracy": 0.2305194805194805,
+        "point/VisDrone|F1@0.5": 0.45367558112244144,
+        "suite/ODinW13|mean_dataset_mAP": 0.3492681516000158,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.33092659446450057
+      }
+    },
+    {
+      "id": "dense-gui-local5000",
+      "label": "dense/GUI local 5000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/final-format-dense-gui-step5000/full/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_finalformatdensegui_step5000_228k_mixedspecial_20260923/scores/scores.json",
+        "score_sha256": "99e6101ab71f351ba7de08884e7a89c19e55e8911cf9c504757a83a524021235",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/final-format-dense-gui-step5000/full/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            5000
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_finalformatdensegui_step5000_228k_mixedspecial_20260923/scores/scores.json"
+          ],
+          "score_sha256": [
+            "99e6101ab71f351ba7de08884e7a89c19e55e8911cf9c504757a83a524021235"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7039871723715448,
+        "box/Dense200|F1@0.5": 0.5451239759359487,
+        "box/DocLayNet|F1@0.5": 0.852654576726366,
+        "box/HierText|F1@0.5": 0.6857384998944043,
+        "box/HumanRef|F1@0.5": 0.8153376094886449,
+        "box/HumanRef|F1@mean": 0.7655616673018397,
+        "box/IC15|F1@0.5": 0.9196862684439419,
+        "box/LVIS|F1@0.5": 0.627575496251358,
+        "box/M6Doc|F1@0.5": 0.6621739688974503,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.09624877292616257,
+        "box/ODinW13_Aquarium|mAP": 0.07926252152599168,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7435361919650612,
+        "box/ODinW13_EgoHands|mAP": 0.5119105324670861,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.4731079069445406,
+        "box/ODinW13_Packages|mAP": 0.7635313531353135,
+        "box/ODinW13_PascalVOC|mAP": 0.045159365049390894,
+        "box/ODinW13_Raccoon|mAP": 0.49147481560771733,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.1882764341899336,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12363273971774723,
+        "box/ODinW13_pistols|mAP": 0.5540967793946411,
+        "box/ODinW13_pothole|mAP": 0.10627518631723724,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3414692776933694,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9102340202584701,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.823481284516261,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8718163227365682,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9370691179070179,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8997055937193327,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9238508399483109,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8921374125509032,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8938433217426877,
+        "box/SROIE|F1@0.5": 0.974493379115222,
+        "box/TotalText|F1@0.5": 0.9262260057671241,
+        "box/VisDrone|F1@0.5": 0.5753634191202339,
+        "gui/screenspot_v2|accuracy": 0.8757861635220126,
+        "gui/sspro|accuracy": 0.4370651486401012,
+        "point/COCO|F1@0.5": 0.6992127565277851,
+        "point/Dense200|F1@0.5": 0.6547094669244606,
+        "point/HumanRef|F1@0.5": 0.4970542206338025,
+        "point/LVIS|F1@0.5": 0.6652032632095993,
+        "point/RefCOCOg_test|F1@0.5": 0.7611821587738824,
+        "point/RefCOCOg_val|F1@0.5": 0.7612988593100389,
+        "point/RefSpatialBench_Location|accuracy": 0.46583333333333327,
+        "point/RefSpatialBench_Placement|accuracy": 0.33,
+        "point/RefSpatialBench_Unseen|accuracy": 0.30844155844155846,
+        "point/VisDrone|F1@0.5": 0.45955043385465044,
+        "suite/ODinW13|mean_dataset_mAP": 0.34753706745647633,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.3730445246690734
+      }
+    },
+    {
+      "id": "cardneutral-local2000",
+      "label": "cardinality-neutral local 2000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/cardneutral-58969485/full-2000/scores.json",
+        "score_path": null,
+        "score_sha256": "e418588b94ad23a4a82ad720cdce6b19f136ad0504cb8976898407ab4db555de",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/cardneutral-58969485/full-2000/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            2000
+          ],
+          "score_sha256": [
+            "e418588b94ad23a4a82ad720cdce6b19f136ad0504cb8976898407ab4db555de"
+          ],
+          "checkpoint_sha256": [
+            "b8d01917095e5b9f60b89208962117aa6139c9723ca580022e0b55901bd6dd11"
+          ],
+          "prompt_protocol": [
+            "localization-v5-cardinality-neutral-trained-contract"
+          ],
+          "output_format": [
+            "mixed_special_xyxy_grouped_all_instances_v2"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7010481225038825,
+        "box/Dense200|F1@0.5": 0.39650482835128686,
+        "box/DocLayNet|F1@0.5": 0.8159611225781048,
+        "box/HierText|F1@0.5": 0.6874319045433613,
+        "box/HumanRef|F1@0.5": 0.8068143303508114,
+        "box/HumanRef|F1@mean": 0.7568964242170806,
+        "box/IC15|F1@0.5": 0.9231643755579041,
+        "box/LVIS|F1@0.5": 0.6262919361169185,
+        "box/M6Doc|F1@0.5": 0.6506528347423917,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.07025061591311163,
+        "box/ODinW13_Aquarium|mAP": 0.07744151627587977,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7752783520110252,
+        "box/ODinW13_EgoHands|mAP": 0.4955812450135181,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.6417965038262069,
+        "box/ODinW13_Packages|mAP": 0.7968646864686468,
+        "box/ODinW13_PascalVOC|mAP": 0.045251231407239516,
+        "box/ODinW13_Raccoon|mAP": 0.5331270787886543,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.18814556602497903,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12263946299299582,
+        "box/ODinW13_pistols|mAP": 0.5521995496385986,
+        "box/ODinW13_pothole|mAP": 0.14165676566114815,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3220010540999048,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9002794271742927,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.807118020044999,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8575943483918944,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.936538801484886,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8940137389597644,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9151744508030275,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8835752323274512,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8875025567600736,
+        "box/SROIE|F1@0.5": 0.9737189577965034,
+        "box/TotalText|F1@0.5": 0.9287401732442859,
+        "box/VisDrone|F1@0.5": 0.5768720148870168,
+        "gui/screenspot_v2|accuracy": 0.8781446540880503,
+        "gui/sspro|accuracy": 0.4686907020872865,
+        "point/COCO|F1@0.5": 0.7890059793348718,
+        "point/Dense200|F1@0.5": 0.7000437840999032,
+        "point/HumanRef|F1@0.5": 0.4960372790584497,
+        "point/LVIS|F1@0.5": 0.7280188634509788,
+        "point/RefCOCOg_test|F1@0.5": 0.8353794646843642,
+        "point/RefCOCOg_val|F1@0.5": 0.8296934948115414,
+        "point/RefSpatialBench_Location|accuracy": 0.555,
+        "point/RefSpatialBench_Placement|accuracy": 0.37,
+        "point/RefSpatialBench_Unseen|accuracy": 0.33766233766233766,
+        "point/VisDrone|F1@0.5": 0.4740225013011087,
+        "suite/ODinW13|mean_dataset_mAP": 0.3663256637016853,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.427797833935018
+      }
+    },
+    {
+      "id": "worker-safe-local1750",
+      "label": "worker-safe local 1750",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/worker-safe-v006-59984237/full1750/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/worker-safe-v006-59984237-v5-midpoint-step1750-228133-20261011/scores/scores.json",
+        "score_sha256": "e2bae9e27de08ec2279b6671c65f0f1dd4e89ea237ead314c6ebc529ca34ab42",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/worker-safe-v006-59984237/full1750/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "run_dir": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/worker-safe-v006-59984237-v5-midpoint-step1750-228133-20261011"
+          ],
+          "step": [
+            1750
+          ],
+          "checkpoint": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/exports/worker-safe-v006-59984237-step1750-sidecar/converted/torch/iter_0001750/mp_rank_00/model_optim_rng.pt"
+          ],
+          "checkpoint_sha256": [
+            "27bda5b8a847cd81e76b665c03b145203be39e87a142643bc1ca722f2ff3447e"
+          ],
+          "manifest_sha256": [
+            "08a7f24ddb75d87285813366e54deb6872f84b4250cce61ce588f73b72d2f960"
+          ],
+          "score_sha256": [
+            "e2bae9e27de08ec2279b6671c65f0f1dd4e89ea237ead314c6ebc529ca34ab42"
+          ],
+          "prompt_family": [
+            "elliot-loc"
+          ],
+          "prompt_protocol": [
+            "localization-v5-cardinality-neutral-trained-contract"
+          ],
+          "output_format": [
+            "mixed_special_xyxy_grouped_all_instances_v2"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7056611409005507,
+        "box/Dense200|F1@0.5": 0.5484589169771923,
+        "box/DocLayNet|F1@0.5": 0.8418943612370113,
+        "box/HierText|F1@0.5": 0.6962270134658628,
+        "box/HumanRef|F1@0.5": 0.8242402045580547,
+        "box/HumanRef|F1@mean": 0.7697601889605228,
+        "box/IC15|F1@0.5": 0.9322057789972001,
+        "box/LVIS|F1@0.5": 0.6359380005657891,
+        "box/M6Doc|F1@0.5": 0.7148779479205183,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.07156250274545699,
+        "box/ODinW13_Aquarium|mAP": 0.0839866058001013,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7267444601603018,
+        "box/ODinW13_EgoHands|mAP": 0.48871765275379375,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.7123528451746275,
+        "box/ODinW13_Packages|mAP": 0.8165016501650164,
+        "box/ODinW13_PascalVOC|mAP": 0.040712275924186365,
+        "box/ODinW13_Raccoon|mAP": 0.563800198071458,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.1947456555211109,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12118385066587255,
+        "box/ODinW13_pistols|mAP": 0.540506854579917,
+        "box/ODinW13_pothole|mAP": 0.14789777288201308,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.33804991341997004,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9133775759692631,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8304356719165473,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8763710726900911,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9397207000176773,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9028459273797841,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9222817057411852,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8998642581184086,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8991613826958478,
+        "box/SROIE|F1@0.5": 0.979657783526724,
+        "box/TotalText|F1@0.5": 0.9273974189873431,
+        "box/VisDrone|F1@0.5": 0.5732747049192054,
+        "gui/screenspot_v2|accuracy": 0.8812893081761006,
+        "gui/sspro|accuracy": 0.4674256799493991,
+        "point/COCO|F1@0.5": 0.7936472351620812,
+        "point/Dense200|F1@0.5": 0.6612002318552312,
+        "point/HumanRef|F1@0.5": 0.5014574446251728,
+        "point/LVIS|F1@0.5": 0.7374707110586591,
+        "point/RefCOCOg_test|F1@0.5": 0.8488143950953809,
+        "point/RefCOCOg_val|F1@0.5": 0.8425806973032708,
+        "point/RefSpatialBench_Location|accuracy": 0.54,
+        "point/RefSpatialBench_Placement|accuracy": 0.36,
+        "point/RefSpatialBench_Unseen|accuracy": 0.2597402597402597,
+        "point/VisDrone|F1@0.5": 0.4831221393778743,
+        "suite/ODinW13|mean_dataset_mAP": 0.37282786445106353,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.3971119133574007
+      }
+    },
+    {
+      "id": "worker-safe-local7145",
+      "label": "worker-safe local 7145 (pre-RL parent)",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/worker-safe-v006-59984237/full7145/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/worker-safe-v006-59984237-v5-final-step7145/scores/scores.json",
+        "score_sha256": "e432a891a6aff1ecbd2bedbac9909cc064e62bfcb0067dcd51b298057f01c2b8",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/worker-safe-v006-59984237/full7145/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "run": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/worker-safe-v006-59984237-v5-final-step7145"
+          ],
+          "step": [
+            7145
+          ],
+          "checkpoint": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/exports/worker-safe-v006-59984237-step7145-sidecar/converted/torch/iter_0007145/mp_rank_00/model_optim_rng.pt"
+          ],
+          "checkpoint_sha256": [
+            "5b63c8197ef2b3812b814d7ceed50455cffbfc4f05287db1d6e14b2e2c280eab"
+          ],
+          "manifest_sha256": [
+            "08a7f24ddb75d87285813366e54deb6872f84b4250cce61ce588f73b72d2f960"
+          ],
+          "score_sha256": [
+            "e432a891a6aff1ecbd2bedbac9909cc064e62bfcb0067dcd51b298057f01c2b8"
+          ],
+          "prompt_family": [
+            "elliot-loc"
+          ],
+          "prompt_protocol": [
+            "localization-v5-cardinality-neutral-trained-contract"
+          ],
+          "output_format": [
+            "mixed_special_xyxy_grouped_all_instances_v2"
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/worker-safe-v006-59984237-v5-final-step7145"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7090442866402946,
+        "box/Dense200|F1@0.5": 0.5170044157923352,
+        "box/DocLayNet|F1@0.5": 0.8393382270839282,
+        "box/HierText|F1@0.5": 0.7059741329961517,
+        "box/HumanRef|F1@0.5": 0.8237261093128986,
+        "box/HumanRef|F1@mean": 0.7684285900542509,
+        "box/IC15|F1@0.5": 0.9215411379482247,
+        "box/LVIS|F1@0.5": 0.6376303874681128,
+        "box/M6Doc|F1@0.5": 0.7109862000991657,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.06042475999787292,
+        "box/ODinW13_Aquarium|mAP": 0.09419641798866481,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7061352974340743,
+        "box/ODinW13_EgoHands|mAP": 0.4884305958060617,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.5018520835600043,
+        "box/ODinW13_Packages|mAP": 0.8442244224422442,
+        "box/ODinW13_PascalVOC|mAP": 0.040315103893550135,
+        "box/ODinW13_Raccoon|mAP": 0.5374248543759713,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.20013564217782887,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.11937768141850817,
+        "box/ODinW13_pistols|mAP": 0.5559666963953699,
+        "box/ODinW13_pothole|mAP": 0.12959304536699404,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3340019791766231,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9128536500174642,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8390263857639599,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8779512920617215,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9420187378469154,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9134445534838077,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9236662359239431,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.9003863422783753,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.89445694416036,
+        "box/SROIE|F1@0.5": 0.980609685466025,
+        "box/TotalText|F1@0.5": 0.9312237678330625,
+        "box/VisDrone|F1@0.5": 0.5665223147668548,
+        "gui/screenspot_v2|accuracy": 0.8922955974842768,
+        "gui/sspro|accuracy": 0.48070841239721696,
+        "point/COCO|F1@0.5": 0.7939419849218625,
+        "point/Dense200|F1@0.5": 0.6609452076635246,
+        "point/HumanRef|F1@0.5": 0.5061894753911685,
+        "point/LVIS|F1@0.5": 0.7354320785196197,
+        "point/RefCOCOg_test|F1@0.5": 0.8497634170899724,
+        "point/RefCOCOg_val|F1@0.5": 0.8436327568187565,
+        "point/RefSpatialBench_Location|accuracy": 0.57,
+        "point/RefSpatialBench_Placement|accuracy": 0.39,
+        "point/RefSpatialBench_Unseen|accuracy": 0.35064935064935066,
+        "point/VisDrone|F1@0.5": 0.47791787949996184,
+        "suite/ODinW13|mean_dataset_mAP": 0.35477527538721293,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.44404332129963897
+      }
+    },
+    {
+      "id": "packing-corrected-local500",
+      "label": "packing-corrected local 500",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/cardneutral-packed-59934312/full500/scores.json",
+        "score_path": null,
+        "score_sha256": "e5dfa32c8380d9fbe1d1cefe944c32da05c8bed0393972ceaa7685dddf968f63",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/cardneutral-packed-59934312/full500/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            500
+          ],
+          "score_sha256": [
+            "e5dfa32c8380d9fbe1d1cefe944c32da05c8bed0393972ceaa7685dddf968f63"
+          ],
+          "checkpoint_sha256": [
+            "67275b6a81d1e09c960717b19a8fb6744c8f4eea5e84396069a3d47ff889f312"
+          ],
+          "prompt_protocol": [
+            "localization-v5-cardinality-neutral-trained-contract"
+          ],
+          "output_format": [
+            "mixed_special_xyxy_grouped_all_instances_v2"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.7022655711072195,
+        "box/Dense200|F1@0.5": 0.4670887842279773,
+        "box/DocLayNet|F1@0.5": 0.8191649336997759,
+        "box/HierText|F1@0.5": 0.6875458679401906,
+        "box/HumanRef|F1@0.5": 0.8026259405607128,
+        "box/HumanRef|F1@mean": 0.7539417454867959,
+        "box/IC15|F1@0.5": 0.921560179877467,
+        "box/LVIS|F1@0.5": 0.6257438693053327,
+        "box/M6Doc|F1@0.5": 0.6628372392390701,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.0737812899111435,
+        "box/ODinW13_Aquarium|mAP": 0.08713785687065005,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7526585185991127,
+        "box/ODinW13_EgoHands|mAP": 0.5008738160076348,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.4869990158356495,
+        "box/ODinW13_Packages|mAP": 0.8694719471947194,
+        "box/ODinW13_PascalVOC|mAP": 0.04299005685950694,
+        "box/ODinW13_Raccoon|mAP": 0.5460618137862228,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.18843906936501986,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.11855665418614832,
+        "box/ODinW13_pistols|mAP": 0.5496523650775512,
+        "box/ODinW13_pothole|mAP": 0.14804060019697354,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3481806511515939,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9079636744673419,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8165268971159746,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8670756646216768,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9397207000176773,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8969578017664377,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9176666051319918,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8889004907591104,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8905706688484353,
+        "box/SROIE|F1@0.5": 0.9732090053332184,
+        "box/TotalText|F1@0.5": 0.9284737423217989,
+        "box/VisDrone|F1@0.5": 0.5745921937516785,
+        "gui/screenspot_v2|accuracy": 0.8781446540880503,
+        "gui/sspro|accuracy": 0.4629981024667932,
+        "point/COCO|F1@0.5": 0.7897380735918452,
+        "point/Dense200|F1@0.5": 0.7053069246309351,
+        "point/HumanRef|F1@0.5": 0.4970156692669177,
+        "point/LVIS|F1@0.5": 0.730648660615674,
+        "point/RefCOCOg_test|F1@0.5": 0.8384240930944163,
+        "point/RefCOCOg_val|F1@0.5": 0.8384520362727318,
+        "point/RefSpatialBench_Location|accuracy": 0.545,
+        "point/RefSpatialBench_Placement|accuracy": 0.36,
+        "point/RefSpatialBench_Unseen|accuracy": 0.3246753246753247,
+        "point/VisDrone|F1@0.5": 0.47389319837484783,
+        "suite/ODinW13|mean_dataset_mAP": 0.3625264350032251,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.41696750902527074
+      }
+    },
+    {
+      "id": "synthetic40-local5000",
+      "label": "synthetic40 local 5000",
+      "kind": "archived-full",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/eval-models-elliot/exports/synthdense40-58493459/full5000/scores.json",
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_synthdense40_step5000_228k_mixedspecial_20260924/scores/scores.json",
+        "score_sha256": "761e8b264ba747132e523fd3598050a1f1a79c9e4176b58a19208d2b7bd39a2d",
+        "receipt_path": "/root/Documents/eval-models-elliot/exports/synthdense40-58493459/full5000/publication-receipt.json",
+        "checksum_verified": true,
+        "metadata": {
+          "step": [
+            5000
+          ],
+          "source": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/full/full_synthdense40_step5000_228k_mixedspecial_20260924/scores/scores.json"
+          ],
+          "score_sha256": [
+            "761e8b264ba747132e523fd3598050a1f1a79c9e4176b58a19208d2b7bd39a2d"
+          ]
+        }
+      },
+      "audit_status": "Score checksum matches archived publication receipt; not a new per-query or protocol audit.",
+      "metrics": {
+        "box/COCO|F1@0.5": 0.702206934592362,
+        "box/Dense200|F1@0.5": 0.5996118803664174,
+        "box/DocLayNet|F1@0.5": 0.8504041308239733,
+        "box/HierText|F1@0.5": 0.6848687307306733,
+        "box/HumanRef|F1@0.5": 0.8130317636736291,
+        "box/HumanRef|F1@mean": 0.7621206822726976,
+        "box/IC15|F1@0.5": 0.9244039174077366,
+        "box/LVIS|F1@0.5": 0.6287106939451601,
+        "box/M6Doc|F1@0.5": 0.6706769690525214,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.09240826617664667,
+        "box/ODinW13_Aquarium|mAP": 0.0786427554964539,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7664080167415237,
+        "box/ODinW13_EgoHands|mAP": 0.5119247854386686,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.4948518066092324,
+        "box/ODinW13_Packages|mAP": 0.7635313531353135,
+        "box/ODinW13_PascalVOC|mAP": 0.039578358542006156,
+        "box/ODinW13_Raccoon|mAP": 0.5070799687715347,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.18180918586297964,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12961494704830792,
+        "box/ODinW13_pistols|mAP": 0.5540263884129675,
+        "box/ODinW13_pothole|mAP": 0.12617442872019127,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3421429480502841,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9125043660495983,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8218449580691348,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.87432608291504,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9370691179070179,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9006869479882238,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.9216355916558981,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.8930771640388431,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8960932706074862,
+        "box/SROIE|F1@0.5": 0.9739681160297922,
+        "box/TotalText|F1@0.5": 0.9226119313854623,
+        "box/VisDrone|F1@0.5": 0.5771773911885063,
+        "gui/screenspot_v2|accuracy": 0.8734276729559748,
+        "gui/sspro|accuracy": 0.4275774826059456,
+        "point/COCO|F1@0.5": 0.7070448277420646,
+        "point/Dense200|F1@0.5": 0.7084532236576582,
+        "point/HumanRef|F1@0.5": 0.49477510246866835,
+        "point/LVIS|F1@0.5": 0.6686158801027517,
+        "point/RefCOCOg_test|F1@0.5": 0.753082721334091,
+        "point/RefCOCOg_val|F1@0.5": 0.7567726847670019,
+        "point/RefSpatialBench_Location|accuracy": 0.5316666666666666,
+        "point/RefSpatialBench_Placement|accuracy": 0.315,
+        "point/RefSpatialBench_Unseen|accuracy": 0.316017316017316,
+        "point/VisDrone|F1@0.5": 0.4658109963834008,
+        "suite/ODinW13|mean_dataset_mAP": 0.35293793915431615,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.3935018050541516
+      }
+    },
+    {
+      "id": "qwen35-2b",
+      "label": "Qwen3.5-2B",
+      "kind": "baseline-readback",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/0011-qwen35-full-backfill/combined/scores/scores.json",
+        "score_sha256": null,
+        "checksum_verified": false,
+        "run_record": "runs/0011-qwen35-full-backfill.md",
+        "supplementary_score_path": null
+      },
+      "audit_status": "Full result read back by SSH on 2026-10-30; selected metrics cached here. Full score file hash not yet imported.",
+      "metrics": {
+        "box/HumanRef|F1@0.5": 0.7250048625177494,
+        "box/HumanRef|F1@mean": 0.6641535370110122,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.8087670275934334,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.7103702188586623,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.7650120840304889,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.8785575393318014,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8231599607458292,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.8618238877607531,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.84796909261773,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8492534260584986,
+        "point/HumanRef|F1@0.5": 0.10806653868280969,
+        "point/RefCOCOg_test|F1@0.5": 0.3788541837160484,
+        "point/RefCOCOg_val|F1@0.5": 0.3834116549123583,
+        "point/RefSpatialBench_Location|accuracy": 0.42,
+        "point/RefSpatialBench_Placement|accuracy": 0.12,
+        "point/RefSpatialBench_Unseen|accuracy": 0.16883116883116883,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.24187725631768953,
+        "suite/ODinW13|mean_dataset_mAP": 0.23616120570444038
+      }
+    },
+    {
+      "id": "rex-omni",
+      "label": "Rex-Omni",
+      "kind": "baseline-readback",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "prediction_errors": 19,
+        "wrong_dimension_predictions": 5,
+        "scoring_complete": false,
+        "last_verified_scored_groups": 35,
+        "scoring_exit_code": 137
+      },
+      "source": {
+        "score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/0012-rex-full-backfill/combined-repair-v1/scores/scores.partial.json",
+        "score_sha256": null,
+        "checksum_verified": false,
+        "run_record": "runs/0012-rex-full-backfill.md",
+        "supplementary_score_path": "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/0012-rex-full-backfill/scores-repair-v1/scores/scores.json"
+      },
+      "audit_status": "Selected completed groups verified by SSH readback. Login-node full rescore was killed with exit 137; exact cause unconfirmed. Full scoring remains incomplete. RefSpatial/ODinW values are from completed subset scoring. SSH renewal is required for recovery.",
+      "metrics": {
+        "box/HumanRef|F1@0.5": 0.8441895117877442,
+        "box/HumanRef|F1@mean": 0.7894250468939222,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.8512050296891372,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.7328697075066476,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8052612009667225,
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.8948205762771787,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.8372914622178607,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.8787151559904006,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.871984963976193,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8711392922888116,
+        "point/RefSpatialBench_Location|accuracy": 0.52,
+        "point/RefSpatialBench_Placement|accuracy": 0.515,
+        "point/RefSpatialBench_Unseen|accuracy": 0.4025974025974026,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.4855595667870036,
+        "suite/ODinW13|mean_dataset_mAP": 0.4273369106240488
+      }
+    },
+    {
+      "id": "grpo-native7145-step300",
+      "label": "Elliot GRPO v003 / local 300",
+      "kind": "archived-evidence",
+      "coverage": {
+        "queries": 228133,
+        "groups": 44,
+        "errors": 0,
+        "scoring_complete": true
+      },
+      "source": {
+        "local_archive": "/root/Documents/jup/elliot-localization-assets-grpo-redgreen/data/verified-localizer-artifacts.json",
+        "archive_entry": "full_native7145_fast_kernels_production_v003_step300_228k_v5_20261014",
+        "score_sha256": "145118bed2efb69443742fb03c118670598cb919f24f34c53aad2022c8d8b535",
+        "checksum_verified": false,
+        "metadata": {
+          "checkpoint": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/post_training/localization_grpo_native7145_20261012/runs/native7145-fast-kernels-production-v003/evaluation_automation/step_300/hf_export"
+          ],
+          "actor": [
+            "/leonardo_scratch/large/userexternal/auselis0/elliot-localization/post_training/localization_grpo_native7145_20261012/runs/native7145-fast-kernels-production-v003/production/global_step_300/actor"
+          ],
+          "checkpoint_identity": [
+            "6526afc627c9120948f113eea391a3fe7874dbee45c8ec5f7884e946a04ba29e"
+          ],
+          "step": [
+            300
+          ],
+          "prompt_protocol": [
+            "localization-v5-cardinality-neutral-trained-contract"
+          ],
+          "manifest_sha256": [
+            "08a7f24ddb75d87285813366e54deb6872f84b4250cce61ce588f73b72d2f960"
+          ],
+          "eval_commit": [
+            "6a6b3208fc9e8576ecd7f44fca060207d83ffe2a"
+          ]
+        }
+      },
+      "audit_status": "Imported archived score content and contract; matches all five user-recalled detection scores. Original remote score-file checksum not reverified in this session. Historical validation records job 60569506, 228133 queries, 44 groups, zero errors.",
+      "metrics": {
+        "box/RefCOCO_testA|Acc@IoU0.5": 0.9434329149726003,
+        "box/ODinW13_CottontailRabbits|mAP": 0.7552104040397576,
+        "point/RefSpatialBench_Placement|accuracy": 0.38,
+        "point/RefCOCOg_val|F1@0.5": 0.8445447422161885,
+        "point/VisDrone|F1@0.5": 0.4862571575305322,
+        "point/RefSpatialBench_Unseen|accuracy": 0.36363636363636365,
+        "box/ODinW13_pothole|mAP": 0.13696515097744186,
+        "box/ODinW13_ShellfishOpenImages|mAP": 0.20692999565175046,
+        "box/ODinW13_Packages|mAP": 0.8442244224422442,
+        "gui/screenspot_v2|accuracy": 0.8977987421383647,
+        "box/ODinW13_AerialMaritimeDrone|mAP": 0.08182323692215311,
+        "box/RefCOCO_val|Acc@IoU0.5": 0.925143068118885,
+        "box/IC15|F1@0.5": 0.9345587215787329,
+        "box/ODinW13_EgoHands|mAP": 0.5038039054932288,
+        "box/ODinW13_PascalVOC|mAP": 0.041981499994838925,
+        "point/Dense200|F1@0.5": 0.6711959237113254,
+        "point/LVIS|F1@0.5": 0.7373401262765613,
+        "gui/sspro|accuracy": 0.4864010120177103,
+        "point/RefCOCOg_test|F1@0.5": 0.8482638675369695,
+        "box/RefCOCOg_test|Acc@IoU0.5": 0.900281925446382,
+        "box/Dense200|F1@0.5": 0.5457072494470607,
+        "box/HumanRef|F1@mean": 0.7795376218237797,
+        "box/DocLayNet|F1@0.5": 0.843029038142833,
+        "box/COCO|F1@0.5": 0.7113940986131003,
+        "box/ODinW13_pistols|mAP": 0.5657505092228908,
+        "box/SROIE|F1@0.5": 0.981732512982962,
+        "point/HumanRef|F1@0.5": 0.5047354732959641,
+        "box/RefCOCOg_val|Acc@IoU0.5": 0.8987523010840662,
+        "box/RefCOCO_testB|Acc@IoU0.5": 0.9138370951913641,
+        "point/COCO|F1@0.5": 0.7971552765965294,
+        "box/ODinW13_thermalDogsAndPeople|mAP": 0.3386148954001946,
+        "box/ODinW13_NorthAmericaMushrooms|mAP": 0.5095851920356871,
+        "box/RefCOCO+_testA|Acc@IoU0.5": 0.9111072301781348,
+        "box/TotalText|F1@0.5": 0.9398694936431227,
+        "box/ODinW13_Aquarium|mAP": 0.09293880363718438,
+        "box/RefCOCO+_testB|Acc@IoU0.5": 0.8347310288402536,
+        "box/M6Doc|F1@0.5": 0.7182737433236015,
+        "box/HumanRef|F1@0.5": 0.8314616716811604,
+        "box/VisDrone|F1@0.5": 0.5881327955507553,
+        "box/HierText|F1@0.5": 0.7046088873248616,
+        "box/LVIS|F1@0.5": 0.6428366319492151,
+        "box/ODinW13_Raccoon|mAP": 0.5352604706565733,
+        "box/RefCOCO+_val|Acc@IoU0.5": 0.8763710726900911,
+        "point/RefSpatialBench_Location|accuracy": 0.57,
+        "box/ODinW13_VehiclesOpenImages|mAP": 0.12845403222968826,
+        "suite/ODinW13|mean_dataset_mAP": 0.3647340399002795,
+        "suite/RefSpatialBench|query_weighted_accuracy": 0.44404332129963897
+      }
+    }
+  ]
+}

@@ -5,6 +5,11 @@ Standalone extraction of the localization evaluator used for Elliot's routine
 working implementation from `elliot-mllm/elliot-vl-eval` while removing its
 general VLM-evaluation and monitoring code.
 
+## Results and run history
+
+See [checkpoint comparisons and the execution flow](results/README.md),
+[the side-by-side CSV](results/comparison.csv), and [numbered run records](runs/README.md).
+
 ## Runtime path
 
 ```mermaid
