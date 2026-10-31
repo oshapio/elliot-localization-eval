@@ -1,6 +1,6 @@
 # 0013 — GRPO v003 step 300, fresh canonical full evaluation
 
-Status: **submitted as job 62986106** after run 0006 attempt 2 passed raw-output checks.
+Status: **COMPLETED 0:0**, job 62986106, elapsed **44m05s**.
 User requested this exact model after identifying its historical detection scores.
 
 Model and tokenizer/processor: same HF export as [0006](0006-language-rl300-smoke7.md),
@@ -46,3 +46,12 @@ Queue audit immediately before submission returned no jobs. Input checks confirm
 `submitted_job_id.txt` and `submission-slurm.txt` preserve scheduler evidence.
 Smoke 62985196 completed 0:0; seven independent decode/geometry checks passed.
 No full-run score exists yet.
+
+## Completed score readback
+
+Final `scores/scores.json`: **228133 samples, 44 groups, zero diagnostic error rows**.
+COCO box F1@0.5 71.135269%; Dense200 54.692667%; LVIS 64.221105%;
+VisDrone 58.905412%; HumanRef 83.208210%; ODinW13 mean dataset mAP 36.628944%.
+These are fresh-run values, not identical to the historical column. This readback
+verifies final score coverage and scheduler completion; full per-row provenance
+audit and comparison-table import remain pending. GPU allocation is released.
