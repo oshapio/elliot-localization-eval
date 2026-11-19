@@ -139,3 +139,7 @@ from the completed subset `scores-repair-v1/scores/scores.json`. Preserve both.
 Next recovery should use the prepared CPU allocation with assigned memory,
 resuming scoring only from the saved predictions. SSH access expired at
 2026-10-30 06:25 UTC; no new recovery job was submitted after that failure.
+
+## Remote progress audit — 2026-11-19
+
+Remote audit, 2026-11-19: repaired subset scores remain present (48196 samples, 28 groups, 19 diagnostic errors), SHA-256 `9932026301ce45083c88a793949ea1e7f8c713b8c7be6c28346c42c32da21537`. Combined `combined-repair-v1/scores/scores.partial.json` contains 43 groups; the missing group is `point/VisDrone`. No final combined `scores.json` exists in this run. No new job was submitted during this audit.

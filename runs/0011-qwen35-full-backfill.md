@@ -102,3 +102,7 @@ Qwen3.5-2B, read directly from `combined/scores/scores.json`:
 RefCOCOg box accuracy was already present in the reused baseline coverage:
 val 84.93%, test 84.80%. Do not confuse box accuracy with the separate pointing
 F1 results. Full combined coverage is 228,133 queries / 44 groups / zero error rows.
+
+## Remote progress audit — 2026-11-19
+
+Remote audit, 2026-11-19: final combined scores remain present: 228133 samples, 44 groups, zero diagnostic errors. SHA-256 `ec40ab0a13e129bc434a219c3a08511d728928b86b05d19dde181d3130939ae0`. No publication receipt was found within this numbered run directory. This does not establish the current live Sheet contents.

@@ -55,3 +55,7 @@ VisDrone 58.905412%; HumanRef 83.208210%; ODinW13 mean dataset mAP 36.628944%.
 These are fresh-run values, not identical to the historical column. This readback
 verifies final score coverage and scheduler completion; full per-row provenance
 audit and comparison-table import remain pending. GPU allocation is released.
+
+## Remote progress audit — 2026-11-19
+
+Remote audit, 2026-11-19: final scores and successful exit receipt remain present: 228133 samples, 44 groups, zero diagnostic errors. Final score SHA-256 `ac8ea79abe40ef7ac5c7930a4e85fefffa9268d53b888a14e324c951704ca5ea`. No publication receipt was found within this numbered run directory. The historical GRPO-300 run has a separate PASS publication receipt for `All scores!AP1:AP34`; that receipt belongs to historical job 60569506, not this fresh job 62986106. Live Sheet contents were not re-read.
