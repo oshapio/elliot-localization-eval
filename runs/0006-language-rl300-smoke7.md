@@ -85,3 +85,57 @@ plugin loaded correctly; this is an exported-processor dependency failure.
 Do not rerun until this dependency is tracked and verified with CPU processor
 loading. No checkpoint or exported processor has been modified. Passing execution, parse coverage and model accuracy are
 separate findings; failures will be recorded without substituting another model.
+
+## Attempt 2 — restore the historical processor dependency
+
+User authorized a new evaluation of this exact GRPO v003 step-300 checkpoint.
+No export, tokenizer, weights, prompt or decoder is modified. The missing runtime
+module is supplied from the same GRPO source directory used by its successful
+historical full evaluation. This is an external runtime dependency, not a second
+evaluator. The canonical repository still owns inference, decoding and scoring.
+
+Prepared command (execute only after CPU processor preflight succeeds):
+
+```bash
+cd /leonardo_work/EUHPC_E07_125/nas/elliot-localization-eval-grpo300
+export EVAL_REPO="$PWD"
+export EVAL_PYTHON=/leonardo_work/EUHPC_E07_125/nas/envs/elliot-vllm-eval/bin/python
+export EVAL_DATA=/leonardo_scratch/large/userexternal/auselis0/elliot-locate-eval/EvalData
+export CONFIG="$PWD/runs/inputs/0006-language-rl300.json"
+export MANIFEST="$PWD/manifests/smoke_manifest_7_v1.jsonl"
+export OUTPUT_DIR=/leonardo_scratch/large/userexternal/auselis0/elliot-localization/evaluations/0006-language-rl300-smoke7/attempt2
+export PYTHONPATH=/leonardo_scratch/large/userexternal/auselis0/elliot-localization/post_training/localization_grpo_native7145_20261012/runs/native7145-fast-kernels-production-v003/source/localization-posttraining/code/07_grpo
+export PROMPT_FAMILY=elliot-loc BATCH_SIZE=1 MAX_NEW_TOKENS=4096 RETRY_MAX_NEW_TOKENS=0
+export EXPECTED_MANIFEST_SHA256=0ecb79959cf9e38e869781bcab9a1e3f2d879e4a35d9ba362b2a9c8acebb09ca EXPECTED_GROUP_COUNT=7
+mkdir -p "$OUTPUT_DIR/logs"
+sbatch --parsable --account=EUHPC_E07_125 --partition=boost_usr_prod \
+ --qos=boost_qos_dbg --job-name=elliot-smoke0006b --nodes=1 --ntasks=1 \
+ --ntasks-per-node=1 --gpus-per-task=1 --cpus-per-task=8 --time=00:20:00 \
+ --output="$OUTPUT_DIR/logs/%x-%j.out" --error="$OUTPUT_DIR/logs/%x-%j.err" \
+ orchestration/vllm_benchmark.sbatch
+```
+
+Status: CPU dependency preflight pending; no second job submitted yet. Full-suite
+submission remains gated on inspecting the smoke's raw responses, coordinates,
+coverage and scoring. Historical full result is a separate artifact; it is not
+relabelled as this fresh execution.
+
+Dependency identity for attempt 2: `elliot_grpo/native_resolution.py` SHA-256
+`1f15a6f803511fcb0168841ffcbb627246c5ab721c40ec3fb4aa2a685f502065`.
+The runtime's ignored compiled FasterEvaluate extension is symlinked from the
+existing score-repair checkout; evaluator Python code remains this PR's checkout.
+
+Attempt 2 submitted as **62985196**, from committed revision `3ac03bb`.
+Immediately before submission, `squeue` returned no jobs. CPU preflight passed:
+AutoProcessor loaded the unchanged export; 640×480 RGB input produced 300 image
+tokens, patch grid 30×40, and 307 total sequence tokens. All 1001 coordinate
+tokens were unique (IDs 248077–249077). Dependency hash matched the pin above.
+
+Attempt 2 **PASS**: job 62985196 completed `0:0` in **6m17s**. Seven unique
+queries generated and scored; zero runtime errors, zero token-cap hits/retries.
+All seven raw responses independently re-decoded exactly to stored predictions;
+all seven original-image geometry and visual-token-grid checks passed.
+Evidence: `attempt2/verification.json`, merged `predictions.jsonl`, `scores/scores.json`
+and job logs. Outputs contain normal semantic mistakes (for example the COCO
+banana answer misses its target); smoke success establishes execution/format
+compatibility, not benchmark accuracy. Full evaluation is recorded as run 0013.
